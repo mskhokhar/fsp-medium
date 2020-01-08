@@ -7,6 +7,9 @@ class Navbar extends React.Component{
         this.handleClick = this.handleClick.bind(this);
         this.handleSignup = this.handleSignup.bind(this);
     }
+    componentDidMount(){
+        document.addEventListener('click', this.onclick);
+    }
     handleClick(e){
         e.preventDefault();
         if (this.props.currentUser) {
@@ -20,7 +23,19 @@ class Navbar extends React.Component{
         this.props.openModal('signup');
     }
     toggleDropdown() {
-        document.getElementById("myDropdown").classList.toggle("show");
+        document.getElementById("profileDropdown").classList.toggle("show");
+    }
+    onclick (e) {
+        if (!e.target.matches('.material-icons')) {
+            let dropdowns = document.getElementsByClassName("dropdown-content");
+            let i;
+            for (i = 0; i < dropdowns.length; i++) {
+                let openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
     }
     render(){
         let action = 'Sign out';
@@ -47,11 +62,11 @@ class Navbar extends React.Component{
                                 notifications_active
                             </i>
                         </li>
-                        <li className='navbar-right-profile' onClick={this.toggleDropdown}>
-                            <i className="material-icons">
+                        <li className='navbar-right-profile'>
+                            <i className="material-icons" onClick={this.toggleDropdown}>
                                 person
                             </i>
-                            <div id="myDropdown" className="dropdown-content">
+                            <div id="profileDropdown" className="dropdown-content">
                                 <a href="#">Link 1</a>
                                 <a href="#">Link 2</a>
                                 <a href="#">Link 3</a>
