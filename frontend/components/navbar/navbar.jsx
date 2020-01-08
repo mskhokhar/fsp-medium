@@ -1,12 +1,34 @@
 import React from 'react';
 
 class Navbar extends React.Component{
+    constructor(props){
+        super(props);
+        
+        this.handleClick = this.handleClick.bind(this);
+        this.handleSignup = this.handleSignup.bind(this);
+    }
+    handleClick(e){
+        e.preventDefault();
+        if (this.props.currentUser) {
+            this.props.logout();
+        }else{
+            this.props.openModal('login');
+        }
+    }
+    handleSignup(e){
+        e.preventDefault();
+        this.props.openModal('signup');
+    }
     render(){
         let action = 'Sign out';
         const {currentUser} = this.props;
         // console.log(currentUser);
+        let signup; 
         if (!currentUser) {
-            action = 'Sign In'
+            action = 'Sign In';
+            signup = (
+                <li className='navbar-right-signout' onClick={this.handleSignup}>Signup</li>
+            );
         }
         return (
             <ul className='navbar'> 
@@ -27,7 +49,8 @@ class Navbar extends React.Component{
                                 person
                             </i>
                         </li>
-                        <li className='navbar-right-signout'>{action}</li>
+                        <li className='navbar-right-signout' onClick={this.handleClick}>{action}</li>
+                        {signup}
                     </ul>
                 </li>
             </ul>
