@@ -1,0 +1,108 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ .main-container{
+    display: flexbox;
+    margin: auto;
+    max-width: 80vw;
+ }
+ .navbar{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between ;
+    padding: 4px;
+    margin: 4px;
+ }
+ .navbar-right{
+     list-style-type: none;
+     display: inline-flex;
+     min-width: 440px;
+ }
+ .navbar-right-search{
+    display: flex;
+    padding: 0 14px;
+
+ }
+ .material-icons{
+     margin-top: 8px;
+     margin-right: 2px;
+     color: rgba(0,0,0,0.54);
+ }
+ .material-icons:hover{
+    cursor: pointer;
+    color: black;
+ }
+ .navbar-right-search input{
+    border: none;
+    box-sizing: border-box;
+    border-bottom: 1px solid lightgray;
+    background-color: white;
+    background-repeat: no-repeat;
+    font-family: 'Cinzel', serif;
+    padding-left: 20px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid rgba(0,0,0,0.54);
+ }
+ .navbar-right-search input:focus{
+    background-color: white;
+    outline: none;
+    font-family: 'Cinzel', serif;
+ }
+
+ .logo{
+    height: 32px;
+    line-height: 32px;
+    padding: 0 14px;
+ }
+ .logo:hover{
+     cursor: pointer;
+ }
+.navbar-right-signout{
+    height: 30px;
+    line-height: 30px;
+    padding: 0 14px;
+    min-width: 32px;
+    margin: 0 7px;
+    font-family: 'Cinzel', serif;
+    border: 1px solid rgba(0,0,0,0.54);
+    color: rgba(0,0,0,0.54);
+    border-radius: 5px;
+}
+.navbar-right-signout:hover{
+    cursor: pointer;
+    border: 1px solid black;
+    color: black;
+}
+.navbar-right-profile{
+    height: 36px;
+    line-height: 32px;
+    padding: 0 12px;
+    color: rgba(0,0,0,0.54);
+}
+.navbar-right-profile:hover{
+    cursor: pointer;
+    color: black;
+}
+.navbar-right-notification{
+    height: 32px;
+    line-height: 32px;
+    padding: 0 14px;
+    margin: 0 7px;
+    color: rgba(0,0,0,0.54);
+}
+.navbar-right-notification:hover{
+    cursor: pointer;
+    color: black;
+}
