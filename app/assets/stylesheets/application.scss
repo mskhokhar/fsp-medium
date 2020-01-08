@@ -172,14 +172,44 @@
     line-height: 30px;
     padding: 0 14px;
     min-width: 32px;
-    margin: 0 7px;
+    margin: 2px 7px;
     font-family: 'Cinzel', serif;
     border: 1px solid rgba(0, 0, 0, 0.158);
     background-color: black;
     color: white;
     font-weight: bolder;
     border-radius: 5px;
-}
-.submit-button:hover{
     cursor: pointer;
+}
+.submit-button[type='button']{
+    height: 30px;
+    line-height: 30px;
+    padding: 0 14px;
+    min-width: 32px;
+    margin: 2px 7px;
+    font-family: 'Cinzel', serif;
+    border: 1px solid rgba(0, 0, 0, 0.158);
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+    border-radius: 5px;
+    cursor: pointer;
+}
+// for profile drop down
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
 }

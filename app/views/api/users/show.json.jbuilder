@@ -1,2 +1,2 @@
-json.partial! "user", user: @user
+json.partial! "show", user: @user
 

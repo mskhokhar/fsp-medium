@@ -5,26 +5,37 @@ class LoginForm extends React.Component {
         super(props);
         this.state = {
             username: '',
-            email: '',
             password: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleGuestLogin = this.handleGuestLogin.bind(this);
     }
     update(field){
         return e => this.setState({[field]: e.target.value})
     }
     handleSubmit(e){
         e.preventDefault();
+        console.log('1st condition');
+        console.log(e.currentTarget.elements[2].defaultValue);
         this.props.processForm(this.state).then(this.props.closeModal(), this.props.openModal('login'));
-        ;
+      
     }
+    handleGuestLogin(e) {
+        e.preventDefault();
+        const guestUser = {
+            username: 'starwars_01',
+            password: '123456'
+        }
+        this.props.processForm(guestUser).then(this.props.closeModal());
+    }
+    
     render(){
         const {errors} = this.props;
         return (
             <div className='auth-form'>
                 <div className='auth-img-container' ><img src={window.auth_back_2} alt="" /></div>
                 <div>
-                    <form  onSubmit={this.handleSubmit}>
+                    <form onSubmit={this.handleSubmit}>
                         <h2 className='auth-header'>Welcome back.</h2>
                         <p className="auth-intro">Sign in to get personalized story recommendations, follow authors and topics you love, and interact with stories.</p>
                         <div className='auth-form-credentials'>
@@ -40,7 +51,8 @@ class LoginForm extends React.Component {
                                 value={this.state.password}
                                 onChange={this.update('password')}
                             />
-                            <input className='submit-button' type="submit" value='LogIn' />
+                            <input className='submit-button'  type="submit"  value='LogIn' />
+                            <input className='submit-button' onClick={this.handleGuestLogin} type="button" value='Guest Login' />
                         </div>
                     </form>
                     <ul>

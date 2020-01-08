@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import configureStore from './store/store';
 import Root from './components/root';
 import {login, logout} from './actions/session_actions';
+import {postUser} from './utils/session_api_util';
 
 
 
@@ -28,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.logout = logout;
     window.getState = store.getState;
     window.dispatch = store.dispatch;
+    window.postUser = postUser;
 
     ReactDOM.render(< Root store={store}/>, root);
 });

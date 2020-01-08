@@ -19,6 +19,9 @@ class Navbar extends React.Component{
         e.preventDefault();
         this.props.openModal('signup');
     }
+    toggleDropdown() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
     render(){
         let action = 'Sign out';
         const {currentUser} = this.props;
@@ -44,10 +47,15 @@ class Navbar extends React.Component{
                                 notifications_active
                             </i>
                         </li>
-                        <li className='navbar-right-profile'>
+                        <li className='navbar-right-profile' onClick={this.toggleDropdown}>
                             <i className="material-icons">
                                 person
                             </i>
+                            <div id="myDropdown" className="dropdown-content">
+                                <a href="#">Link 1</a>
+                                <a href="#">Link 2</a>
+                                <a href="#">Link 3</a>
+                            </div>
                         </li>
                         <li className='navbar-right-signout' onClick={this.handleClick}>{action}</li>
                         {signup}
