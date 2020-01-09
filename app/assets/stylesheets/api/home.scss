@@ -1,0 +1,90 @@
+.main-home-container{
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+  margin: auto;
+  
+}
+// for carousel
+/* Slideshow container */
+.slideshow-container {
+  display: flex;
+  justify-content: center;
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+.mySlides{
+  display: flex;
+  justify-content: flex-end;
+  margin: auto;
+}
+
+.mySlides > img{
+  max-width: 800px;
+  max-height: 400px;
+  min-width: 800px;
+  min-height: 400px;
+  width: 100%;
+  border-radius: 4px;
+  // box-shadow: 10px 10px 5px grey, 10px 10px 5px rgba(0,0,0,0.54);
+}
+
+/* Caption text */
+.text {
+  color: black;
+  font-size: 70px;
+  padding: 8px 12px;
+  max-width: 300px;
+  width: 100%;
+  font-family: 'Cinzel', serif;
+  text-align: center;
+  color: rgba(0,0,0,0.8);
+  transform: rotate(270deg);
+}
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.home-header{
+  font-weight: 900;
+  font-family: 'Cinzel', serif;
+  text-align: center;
+  margin: 50px auto;
+  font-size: 85px;
+  color: rgba(0,0,0,0.8);
+  max-width: 1000px;
+}
+.dots-container{
+  display: flex;
+  justify-content: center;
+}
