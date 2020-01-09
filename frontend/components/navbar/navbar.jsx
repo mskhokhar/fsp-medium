@@ -41,11 +41,29 @@ class Navbar extends React.Component{
         let action = 'Sign out';
         const {currentUser} = this.props;
         // console.log(currentUser);
-        let signup; 
+        let signup;
+        let username; 
+        let new_post;
+        let own_posts;
+        let own_followers;
         if (!currentUser) {
             action = 'Sign In';
             signup = (
                 <li className='navbar-right-signout' onClick={this.handleSignup}>Signup</li>
+            );
+            username = (
+                <a onClick={() => this.props.openModal('signup')}>Click to join this beautiful community.</a>
+            );
+        }else{
+            username = currentUser.username;
+            new_post = (
+                <div>Create new post</div>
+            );
+            own_posts = (
+                <div>Posts</div>
+            );
+            own_followers = (
+                <div>Followers</div>
             );
         }
         return (
@@ -54,22 +72,31 @@ class Navbar extends React.Component{
                 <li>
                     <ul className='navbar-right'>
                         <li className='navbar-right-search'>
-                            <i className="material-icons">search</i>
+                            <i className="material-icons" id="navbar-icon">search</i>
                             <input type="text" placeholder="Search Blogium"/>
                         </li>
                         <li className='navbar-right-notification'>
-                            <i className="material-icons">
+                            <i className="material-icons" id="navbar-icon">
                                 notifications_active
                             </i>
                         </li>
                         <li className='navbar-right-profile'>
-                            <i className="material-icons" onClick={this.toggleDropdown}>
+                            <i className="material-icons" id="navbar-icon" onClick={this.toggleDropdown}>
                                 person
                             </i>
                             <div id="profileDropdown" className="dropdown-content">
-                                <a href="#">Link 1</a>
-                                <a href="#">Link 2</a>
-                                <a href="#">Link 3</a>
+                               
+                                <div >
+                                    <div className="dropdown-profile">
+                                        <i class="material-icons" id="dropdown-profile-icon">
+                                            account_circle
+                                        </i>
+                                    </div>
+                                    <div>{username}</div>
+                                </div>
+                                {new_post}
+                                {own_posts}
+                                {own_followers}
                             </div>
                         </li>
                         <li className='navbar-right-signout' onClick={this.handleClick}>{action}</li>
