@@ -15,8 +15,8 @@ class LoginForm extends React.Component {
     }
     handleSubmit(e){
         e.preventDefault();
-        console.log('1st condition');
-        console.log(e.currentTarget.elements[2].defaultValue);
+        // console.log('1st condition');
+        // console.log(e.currentTarget.elements[2].defaultValue);
         this.props.processForm(this.state).then(this.props.closeModal(), this.props.openModal('login'));
       
     }
