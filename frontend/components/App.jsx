@@ -4,13 +4,13 @@ import LoginFormContainer from './auth/login_form_container';
 import NavbarContainer from './navbar/navbar_container';
 import Modal from './modal/modal';
 import Home from './home/home_container';
+import { AuthRoute, ProtectedRoute } from '../utils/route_util';
 
 const App = () => (
     <div>
         < Modal/>
         < NavbarContainer />
-        < Route path='/' component={Home}/>
-        {/* < Route path='/login' component={LoginFormContainer}/> */}
+        < AuthRoute path='/' component={Home}/>
     </div>
 );
 
