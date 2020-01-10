@@ -24,7 +24,7 @@
   bottom: 0;
   right: 0;
   left: 0;
-  background: rgba(236, 231, 231, 0.7);
+  background: rgba(255, 255, 255, 0.93);
   z-index: 10;
 }
 
@@ -33,18 +33,18 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background-color: white;
 }
  
 .auth-form{
     display: flex;
-    background: white;
+    background-color: white;
     border-radius: 4px;
     border: 1px solid rgba(235, 225, 225, 0.705);
     position: relative;
     height: 50vh;
     width: 90vh;
     border-radius: 5px;
-    background-color: #f2f2f2;
     box-shadow:  1px 2px 4px rgba(0, 0, 0, .5);
 }
 .auth-image-container{
@@ -56,29 +56,66 @@
 .auth-form-credentials{
     display: flex;
     flex-direction: column; 
-    justify-items: space-evenly;
+    padding: 15px 100px;
+    min-height: 200px;
+    justify-content: space-evenly;
+}
+.signup-auth-form-credentials{
+    display: flex;
+    flex-direction: column; 
+    padding: 0 100px;
+    min-height: 200px;
+    justify-content: space-evenly;
 }
 .auth-form-credentials input{
-    height: 30px;
-    line-height: 30px;
-    padding: 0 14px;
+    height: 33px;
+    line-height: 25px;
+    padding: 0px 14px;
     min-width: 32px;
     margin: 2px 7px;
     font-family: 'Noto Sans', sans-serif;
-    border: 1px solid rgba(0,0,0,0.54);
+    border-bottom: 0.1px solid black;
     color: rgba(0,0,0,0.54);
-    border-radius: 5px;
+    outline: none;
+}
+.signup-auth-form-credentials input{
+    height: 33px;
+    line-height: 25px;
+    padding: 0px 14px;
+    min-width: 32px;
+    margin: 2px 7px;
+    font-family: 'Noto Sans', sans-serif;
+    border-bottom: 0.1px solid black;
+    color: rgba(0,0,0,0.54);
     outline: none;
 }
 
+.auth-form-intro-container{
+    padding: 10px 50px;
+    padding-top: 0px;
+}
+
+
 .auth-intro{
     margin-top: 30px;
+    color: rgba(0,0,0,0.54);
     text-align: center;
+    line-height: 25px;
+    font-size: 15px;
     font-family: 'Noto Sans', sans-serif;
 }
 .auth-header{
     text-align: center;
     font-family: 'Noto Sans', sans-serif;
+    padding-top: 30px;
+    font-size: 30px;
+}
+
+.signup-auth-header{
+    text-align: center;
+    font-family: 'Noto Sans', sans-serif;
+    padding-top: 30px;
+    font-size: 30px;
 }
 
 .submit-button[type='submit']{
@@ -87,6 +124,21 @@
     padding: 0 14px;
     min-width: 32px;
     margin: 2px 7px;
+    font-family: 'Noto Sans', sans-serif;
+    border: 1px solid rgba(0, 0, 0, 0.158);
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.signup-submit-button[type='submit']{
+    height: 30px;
+    line-height: 30px;
+    padding: 0 14px;
+    min-width: 32px;
+    margin: 5px 7px;
+    margin-top: 10px;
     font-family: 'Noto Sans', sans-serif;
     border: 1px solid rgba(0, 0, 0, 0.158);
     background-color: black;
@@ -109,37 +161,12 @@
     border-radius: 5px;
     cursor: pointer;
 }
+.auth-errors{
+    text-align: center;
+    margin-top: 20px;
+    color: red
+}
 // for profile drop down
 /* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: white;
-  min-width: 160px;
-  border-radius: 6px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
 
-/* Links inside the dropdown */
-.dropdown-content > div {
-  color: rgba(0,0,0,0.54);
-  padding: 12px 16px;
-  font-family: 'Noto Sans', sans-serif;
-  text-decoration: none;
-  display: block;
-  border-bottom: lightgrey solid 1px;
-}
-/* Change color of dropdown links on hover */
-.dropdown-content div:hover {background-color: #ddd}
-
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-
-.show {display:block;}
-
-//for drop down profile icon
-#dropdown-profile{
-    display: inline-block;
-    margin: auto;
-}
 

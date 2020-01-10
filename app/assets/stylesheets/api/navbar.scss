@@ -87,3 +87,34 @@
     cursor: pointer;
     color: black;
 }
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  border-radius: 6px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content > div {
+  color: rgba(0,0,0,0.54);
+  padding: 12px 16px;
+font-family: 'Noto Sans', sans-serif;
+  text-decoration: none;
+  display: block;
+  border-bottom: lightgrey solid 1px;
+}
+/* Change color of dropdown links on hover */
+.dropdown-content div:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+
+.show {display:block;}
+
+//for drop down profile icon
+#dropdown-profile{
+    display: inline-block;
+    margin: auto;
+}

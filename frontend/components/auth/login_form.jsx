@@ -36,8 +36,10 @@ class LoginForm extends React.Component {
                 <div className='auth-img-container' ><img src={window.auth_back_2} alt="" /></div>
                 <div>
                     <form onSubmit={this.handleSubmit}>
-                        <h2 className='auth-header'>Welcome back.</h2>
-                        <p className="auth-intro">Sign in to get personalized story recommendations, follow authors and topics you love, and interact with stories.</p>
+                        <h1 className='auth-header'>Welcome back.</h1>
+                        <div className="auth-form-intro-container">
+                            <p className="auth-intro">Sign in to get personalized story recommendations, follow authors and topics you love, and interact with stories.</p>
+                        </div>
                         <div className='auth-form-credentials'>
                             <input
                                 type="text"
@@ -45,7 +47,6 @@ class LoginForm extends React.Component {
                                 value={this.state.username}
                                 onChange={this.update('username')}
                             />
-                            <input type="text"/>
                             <input
                                 type="password"
                                 placeholder="Password"
@@ -56,12 +57,8 @@ class LoginForm extends React.Component {
                             <input className='submit-button' onClick={this.handleGuestLogin} type="button" value='Guest Login' />
                         </div>
                     </form>
-                    <ul>
-                        {
-                            errors.map(e => {
-                                return <li>{e}</li>
-                            })
-                        }
+                    <ul className="auth-errors">
+                        <li>{errors[0]}</li>
                     </ul>
                 </div>
                 <div><img src={window.auth_back_1} alt=""/></div>

@@ -21,14 +21,17 @@ class SignupForm extends React.Component {
         ;
     }
     render() {
-        const { formType, errors } = this.props;
+        const {  errors } = this.props;
         return (
             <div className='auth-form'>
-                <div className='auth-img-container' ><img src={window.auth_back_2} alt="" /></div>
+                <div className='auth-img-container' ><img src={window.signup1} alt="" /></div>
                 <div>
                     <form onSubmit={this.handleSubmit}>
-                    <h1 className='auth-header'>Create your account </h1>
-                    <div className='auth-form-credentials'>
+                    <h1 className='signup-auth-header'>Join Blogium.</h1>
+                    <div className="auth-form-intro-container">
+                            <p className="auth-intro">Create an account to receive great stories in your inbox, personalize your homepage, and follow authors and topics that you love.</p>
+                    </div>
+                    <div className='signup-auth-form-credentials'>
                         <input
                             type="text"
                             value={this.state.first_name}
@@ -63,19 +66,14 @@ class SignupForm extends React.Component {
                             placeholder="Password"
 
                         />
-                        <input className='submit-button' type="submit" value='Sign Up' />
+                        <input className='signup-submit-button' type="submit" value='Sign Up' />
                     </div>
-
                     </form>
-                    <ul>
-                        {
-                            errors.map(e => {
-                                return <li>{e}</li>
-                            })
-                        }
+                    <ul className="auth-errors">
+                        <li>{errors[0]}</li>     
                     </ul>
                 </div>
-                <div></div>
+                <div className='auth-img-container'><img src={window.signup2} alt="" /></div>
             </div>
         );
     }
