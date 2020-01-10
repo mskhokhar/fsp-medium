@@ -3,16 +3,21 @@
   justify-items: center;
   flex-direction: column;
   margin: auto;
-  
 }
+.main-home-container > div, footer{
+  display: flex;
+  justify-content: center;
+}
+
 // for carousel
 /* Slideshow container */
 .slideshow-container {
-  display: flex;
-  justify-content: center;
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
+  // display: flex;
+  // justify-content: center;
+  // max-width: 1000px;
+  // position: relative;
+  // margin: auto;
+  margin-bottom: 40px;
 }
 .mySlides{
   display: flex;
@@ -21,10 +26,10 @@
 }
 
 .mySlides > img{
-  max-width: 800px;
-  max-height: 400px;
-  min-width: 800px;
-  min-height: 400px;
+  max-width: 700px;
+  max-height: 350px;
+  min-width: 700px;
+  min-height: 350px;
   width: 100%;
   border-radius: 4px;
   // box-shadow: 10px 10px 5px grey, 10px 10px 5px rgba(0,0,0,0.54);
@@ -37,25 +42,41 @@
   padding: 8px 12px;
   max-width: 300px;
   width: 100%;
-  font-family: 'Cinzel', serif;
+  font-family: 'Noto Sans', sans-serif;
   text-align: center;
   color: rgba(0,0,0,0.8);
   transform: rotate(270deg);
 }
 /* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
+// .dot {
+//   cursor: pointer;
+//   height: 15px;
+//   width: 15px;
+//   margin: 0 2px;
+//   background-color: #bbb;
+//   border-radius: 50%;
+//   display: inline-block;
+//   transition: background-color 0.6s ease;
+// }
 
+.category-container{
+  display: flex;
+  justify-items: center;
+  margin-bottom: 40px;
+}
+.category{
+  border: 1px solid #32c671;
+  border-radius: 25px;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 900;
+  margin: 0 10px;
+  padding: 6px 12px;
+}
+.category:hover{
+  cursor: pointer;
+}
 .active, .dot:hover {
-  background-color: #717171;
+  background-color: #32c671;
 }
 /* Fading animation */
 .fade {
@@ -76,15 +97,67 @@
 }
 
 .home-header{
-  font-weight: 900;
-  font-family: 'Cinzel', serif;
+  font-family: 'Noto Sans', sans-serif;
   text-align: center;
   margin: 50px auto;
-  font-size: 85px;
+  margin-top: 35px;
+  font-size: 70px;
   color: rgba(0,0,0,0.8);
   max-width: 1000px;
 }
-.dots-container{
+
+//for checked circle
+.ticked-circle{
+  height: 40px;
+  width: 40px;
+}
+
+.checklist{
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  
+}
+.checklist > div{
+  margin: 0 30px;
+  
   display: flex;
-  justify-content: center;
+}
+
+.checklist > div > div{
+  padding-top: 10px;
+}
+.checklist-lastchild{
+  margin-left: 60px;
+  padding-left: 80px;
+  padding-bottom: 20px ;
+  margin-top: 8px;
+  
+  font-size: larger;
+  font-weight: bolder;;
+}
+.hr{
+  width: 800px;
+  color: lightgrey;
+}
+.about-container-business-idea{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+
+.about-container-intro {
+  display: flex;
+  float: right;
+  text-align: left;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.about-container-intro > div{
+   max-width: 65%;
+}
+footer{
+  background-color: black;
+  width: 100vw;
 }
