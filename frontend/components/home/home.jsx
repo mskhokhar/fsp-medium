@@ -41,46 +41,37 @@ class Home extends React.Component{
         
         const mySlides = [
             (<div className="mySlides fade">
-                {/* <div className="text">Business</div> */}
                 <img src={window.business} />
             </div>),
 
             (<div className="mySlides fade">
-                {/* <div className="text">Education</div> */}
                 <img src={window.education} />
             </div>),
 
             (<div className="mySlides fade">
-                {/* <div className="text">Food</div> */}
                 <img src={window.food} />
             </div>),
 
             (<div className="mySlides fade">
-                {/* <div className="text">Health</div> */}
                 <img src={window.health} />
             </div>),
 
             (<div className="mySlides fade">
-                {/* <div className="text">LGBTQIAA</div> */}
                 <img src={window.lgbt} />
             </div>),
 
             (<div className="mySlides fade">
-                {/* <div className="text">Psychology</div> */}
                 <img src={window.psychology} />
             </div>),
             (<div className="mySlides fade">
-                {/* <div className="text">Relationships</div> */}
                 <img src={window.relationships} />
             </div>),
 
             (<div className="mySlides fade">
-                {/* <div className="text">Technology</div> */}
                 <img src={window.technology} />
             </div>),
 
             (<div className="mySlides fade">
-                {/* <div className="text">Work</div> */}
                 <img src={window.work} />
             </div>)
         ];
@@ -121,10 +112,10 @@ class Home extends React.Component{
                     </div>
                     <h1 className="checklist-lastchild">All on Blogium, all for you.</h1>
                 </div>
-                <hr className="hr"/>
+                
                 <div className="about-container-business-idea">
                     
-                    <h1>No ads. No problems</h1>
+                    <h1>No ads. No problems.</h1>
                     <span>Your privacy stays yours. We don’t sell your data or target you with ads. Ever.</span>
                 
                     
@@ -132,10 +123,10 @@ class Home extends React.Component{
                 <div className="about-container-intro">
                     <div>
                         <p>We do things differently.</p>
-                        <p>Medium is not like any other platform on the internet. Our sole purpose is to help you find compelling ideas, knowledge, and perspectives. We don’t serve ads—we serve you, the curious reader who loves to learn new things. Medium is home to thousands of independent voices, and we combine humans and technology to find the best reading for you—and filter out the rest.</p>
+                        <p>Medium is not like any other platform on the internet. <span className="highlighted" >Our sole purpose is to help you find compelling ideas, knowledge, and perspectives.</span> We don’t serve ads—we serve you, the curious reader who loves to learn new things. Medium is home to thousands of independent voices, and we combine humans and technology to find the best reading for you—and filter out the rest.</p>
                     </div>
                 </div>
-                
+                <hr className="hr" />
                 <div>Expand your reading</div>
                 <div>Expand your mind</div>
                 <button>Get Started</button>
