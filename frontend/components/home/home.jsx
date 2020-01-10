@@ -38,7 +38,7 @@ class Home extends React.Component{
         this.setState({});
     }
     render(){
-        
+        const {openModal} = this.props;
         const mySlides = [
             (<div className="mySlides fade">
                 <img src={window.business} />
@@ -127,9 +127,9 @@ class Home extends React.Component{
                     </div>
                 </div>
                 <hr className="hr" />
-                <div>Expand your reading</div>
-                <div>Expand your mind</div>
-                <button>Get Started</button>
+                <div className="home-random-text"><h1>Expand your reading.</h1></div>
+                <div className="home-random-text"><h1>Expand your mind.</h1></div>
+                <div className="home-signup" onClick={ () => openModal('signup') }>Get Started</div>
                 
             </div>
         
