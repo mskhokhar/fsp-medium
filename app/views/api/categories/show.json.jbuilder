@@ -1,1 +1,2 @@
-json.extract! @category.title, :id, :name, :subtitle
+
+json.partial! "show", category: @category
