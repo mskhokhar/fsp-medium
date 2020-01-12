@@ -8,11 +8,11 @@ class Feed extends React.Component {
         const { posts } = this.props;
         return (
             <ul>
-                posts.map( post => (
+                { Object.values(posts).map( post => (
                     <li>
-                        FeedItem
+                        {post.title}
                     </li>
-                ))
+                ) ) }
             </ul>
         );
     }
