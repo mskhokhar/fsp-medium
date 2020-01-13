@@ -3,7 +3,7 @@ export const postUser = user => (
         url: 'api/users',
         method: 'POST',
         data: { user }
-    }).then(res => console.log('util errors', res))
+    })
 );
 
 export const postSession = user => (

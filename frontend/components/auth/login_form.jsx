@@ -15,8 +15,8 @@ class LoginForm extends React.Component {
     }
     handleSubmit(e){
         e.preventDefault();
-        console.log('1st condition');
-        console.log(e.currentTarget.elements[2].defaultValue);
+        // console.log('1st condition');
+        // console.log(e.currentTarget.elements[2].defaultValue);
         this.props.processForm(this.state).then(this.props.closeModal(), this.props.openModal('login'));
       
     }
@@ -61,7 +61,7 @@ class LoginForm extends React.Component {
                         <li>{errors[0]}</li>
                     </ul>
                 </div>
-                <div><img src={window.auth_back_1} alt=""/></div>
+                <div><img className='auth-img-container' src={window.auth_back_1} alt=""/></div>
             </div>
         );
     }
