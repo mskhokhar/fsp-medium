@@ -16,7 +16,7 @@
  .main-container{
     display: flexbox;
     margin: auto;
-    max-width: 80vw;
+    max-width: 1200px;
  }
  .modal-background {
   position: fixed;
@@ -42,8 +42,8 @@
     border-radius: 4px;
     border: 1px solid rgba(235, 225, 225, 0.705);
     position: relative;
-    height: 50vh;
-    width: 90vh;
+    height: 500px;
+    width: 800px;
     border-radius: 5px;
     box-shadow:  1px 2px 4px rgba(0, 0, 0, .5);
 }
@@ -131,6 +131,7 @@
     font-weight: bolder;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 30px;
 }
 .signup-submit-button[type='submit']{
     height: 30px;
@@ -152,7 +153,7 @@
     line-height: 30px;
     padding: 0 14px;
     min-width: 32px;
-    margin: 2px 7px;
+    margin: 1px 7px;
     font-family: 'Noto Sans', sans-serif;
     border: 1px solid rgba(0, 0, 0, 0.158);
     background-color: black;
@@ -160,6 +161,7 @@
     font-weight: bolder;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 2px;
 }
 .auth-errors{
     text-align: center;
@@ -168,8 +170,66 @@
 }
 
 footer{
+    display: flex;
   background-color: black;
   width: 100vw;
   color: white;
+}
+footer > div{
+    display: flex;
+    margin: auto;
+    min-width: 1200px;
+    max-width: 1200px;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.footer-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-family: 'Noto Sans', sans-serif;
+
+}
+.footer-info > div > a{
+    color: white;
+    text-decoration: none;
+}
+
+.footer-info-links{
+    min-width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-info-links > div > a{
+    text-decoration: none;    
+    color: rgb(40,103,178);
+
+}
+.footer-info-additional{
+    display: flex;
+    flex-direction: row;
+    min-width: 200px;
+    justify-content: space-between;
+}
+.footer-info-additional > div > a{
+    text-decoration: none;
+    color: white;
+}
+// .logo-links{
+
+// }
+.logo-links > a > img{
+    max-width: 90px;
+    max-height: 90px;
+    margin: 30px;
+    cursor: pointer;
+}
+.logo-container{
+    min-width: 35%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 

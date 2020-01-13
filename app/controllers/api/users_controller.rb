@@ -13,7 +13,7 @@ class Api::UsersController < ApplicationController
     end
 
     def show
-        @user = User.find(params[:id])
+        @user = User.includes(:authored_posts).find(params[:id])
     end
     
 
