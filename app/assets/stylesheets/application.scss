@@ -16,7 +16,7 @@
  .main-container{
     display: flexbox;
     margin: auto;
-    max-width: 80vw;
+    max-width: 1200px;
  }
  .modal-background {
   position: fixed;
@@ -168,8 +168,66 @@
 }
 
 footer{
+    display: flex;
   background-color: black;
   width: 100vw;
   color: white;
+}
+footer > div{
+    display: flex;
+    margin: auto;
+    min-width: 1200px;
+    max-width: 1200px;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.footer-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-family: 'Noto Sans', sans-serif;
+
+}
+.footer-info > div > a{
+    color: white;
+    text-decoration: none;
+}
+
+.footer-info-links{
+    min-width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-info-links > div > a{
+    text-decoration: none;    
+    color: rgb(40,103,178);
+
+}
+.footer-info-additional{
+    display: flex;
+    flex-direction: row;
+    min-width: 200px;
+    justify-content: space-between;
+}
+.footer-info-additional > div > a{
+    text-decoration: none;
+    color: white;
+}
+// .logo-links{
+
+// }
+.logo-links > a > img{
+    max-width: 90px;
+    max-height: 90px;
+    margin: 30px;
+    cursor: pointer;
+}
+.logo-container{
+    min-width: 35%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 

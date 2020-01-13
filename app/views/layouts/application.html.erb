@@ -20,22 +20,28 @@
     <div class='main-container'>
       <%= yield %>
     </div>
-    <!-- <footer>
+    <footer>
       <div>
-        <div>
-          <div>symbol</div>
-          <ul>
-            <li>Get Started</li>
-            <li><span>Have an account? </span>Sign In</li>
-          </ul>
-            <li>Some Things</li>
-          <ul></ul>
+        <div class="footer-info">
+          <div><a href="">Blogium</a></div>
+          <div class="footer-info-links">
+            <div><a href="">Get Started.</a></div>
+            <div><span>Have an account?      </span><a href="">Sign In</a></div>
+          </div>
+          <div class="footer-info-additional">
+            <div><a href="https://github.com/mskhokhar/fsp-medium">Github repository.</a></div>
+            <div><a href="">LinkedIn profile link.</a></div>
+          </div>
         </div>
-        <div>
-          <div><img src="app/assets/images/Octocat.png" alt="github"></div>
-          <div><img src="app/assets/images/LI-In-Bug.png" alt="linkedIn"></div>
+        <div class="logo-container">
+          <div class="logo-links">
+            <a href="https://github.com/mskhokhar/fsp-medium"><img src="<%= image_url('Octocat.png') %>"  alt="github"></a>
+          </div>
+          <div class="logo-links">
+            <a href=""><img src="<%= image_url('linkedIn.png') %>" alt="linkedIn"></a>
+          </div>
         </div>
       </div>
-    </footer> -->
+    </footer> 
   </body>
 </html>
