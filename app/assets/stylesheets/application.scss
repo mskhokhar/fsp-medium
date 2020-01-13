@@ -42,8 +42,8 @@
     border-radius: 4px;
     border: 1px solid rgba(235, 225, 225, 0.705);
     position: relative;
-    height: 50vh;
-    width: 90vh;
+    height: 500px;
+    width: 800px;
     border-radius: 5px;
     box-shadow:  1px 2px 4px rgba(0, 0, 0, .5);
 }
@@ -131,6 +131,7 @@
     font-weight: bolder;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 30px;
 }
 .signup-submit-button[type='submit']{
     height: 30px;
@@ -152,7 +153,7 @@
     line-height: 30px;
     padding: 0 14px;
     min-width: 32px;
-    margin: 2px 7px;
+    margin: 1px 7px;
     font-family: 'Noto Sans', sans-serif;
     border: 1px solid rgba(0, 0, 0, 0.158);
     background-color: black;
@@ -160,6 +161,7 @@
     font-weight: bolder;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 2px;
 }
 .auth-errors{
     text-align: center;
