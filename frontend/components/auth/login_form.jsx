@@ -61,7 +61,7 @@ class LoginForm extends React.Component {
                         <li>{errors[0]}</li>
                     </ul>
                 </div>
-                <div><img src={window.auth_back_1} alt=""/></div>
+                <div><img className='auth-img-container' src={window.auth_back_1} alt=""/></div>
             </div>
         );
     }
