@@ -4,9 +4,9 @@ export const retrieveAllPosts = () => (
     })
 );
 
-export const retrievePost = post => (
+export const retrievePost = postId => (
     $.ajax({
-        url: `api/posts/${post.id}`
+        url: `api/posts/${postId}`
     })
 );
 

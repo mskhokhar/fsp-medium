@@ -11,6 +11,7 @@ class Post < ApplicationRecord
 
     #for likes
     has_many :likes
+    
 
     #for active_storage
     has_one_attached :picture

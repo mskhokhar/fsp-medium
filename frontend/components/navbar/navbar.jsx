@@ -88,7 +88,7 @@ class Navbar extends React.Component{
                                
                                 <div >
                                     <div className="dropdown-profile">
-                                        <i class="material-icons" id="dropdown-profile-icon">
+                                        <i className="material-icons" id="dropdown-profile-icon">
                                             account_circle
                                         </i>
                                     </div>
