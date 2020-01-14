@@ -13,11 +13,11 @@ class Api::PostsController < ApplicationController
     end
     
     def index
-        @posts = Post.all
+        @posts = Post.includes(:author).includes(:likes).all
     end
 
     def show
-        @post = Post.find(params[:id])
+        @post = Post.includes(:likes).find(params[:id])
         
     end
     

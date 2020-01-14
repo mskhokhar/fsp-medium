@@ -6,3 +6,4 @@ class Like < ApplicationRecord
     #for post   
     belongs_to :post
 end
+

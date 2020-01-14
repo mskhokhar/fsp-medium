@@ -4,13 +4,17 @@ class Home extends React.Component{
     constructor(props){
         super(props);
         this.state = { slideIndex: 0 };
+        this.indexCounter;
 
         this.incrementIndex = this.incrementIndex.bind(this);
         this.currentSlide = this.currentSlide.bind(this);
         
     }
     componentDidMount(){
-        setInterval(this.incrementIndex, 4000);
+        this.indexCounter = setInterval(this.incrementIndex, 4000);
+    }
+    componentWillUnmount(){
+        clearInterval(this.indexCounter);
     }
 
     incrementIndex(){
@@ -35,7 +39,6 @@ class Home extends React.Component{
             category[previousIndex].classList.toggle("active");
             category[this.state.slideIndex].classList.toggle("active");
         });
-        this.setState({});
     }
     render(){
         const {openModal} = this.props;

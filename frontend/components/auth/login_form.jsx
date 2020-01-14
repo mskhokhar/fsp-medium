@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {withRouter} from 'react-router-dom';
 class LoginForm extends React.Component {
     constructor(props){
         super(props);
@@ -9,16 +9,23 @@ class LoginForm extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleGuestLogin = this.handleGuestLogin.bind(this);
+        this.redirect = this.redirect.bind(this);
+        this.successfulLogin = this.successfulLogin.bind(this);
     }
     update(field){
         return e => this.setState({[field]: e.target.value})
     }
     handleSubmit(e){
         e.preventDefault();
-        // console.log('1st condition');
-        // console.log(e.currentTarget.elements[2].defaultValue);
-        this.props.processForm(this.state).then(this.props.closeModal(), this.props.openModal('login'));
+        this.props.processForm(this.state).then(this.successfulLogin(), this.props.openModal('login'));
       
+    }
+    successfulLogin(){
+        this.props.closeModal();
+        setTimeout(this.redirect,500);
+    }
+    redirect(){
+        this.props.history.push('/feed');
     }
     handleGuestLogin(e) {
         e.preventDefault();
@@ -26,7 +33,7 @@ class LoginForm extends React.Component {
             username: 'starwars_01',
             password: '123456'
         }
-        this.props.processForm(guestUser).then(this.props.closeModal());
+        this.props.processForm(guestUser).then(this.successfulLogin());
     }
     
     render(){
@@ -66,4 +73,4 @@ class LoginForm extends React.Component {
         );
     }
 }
-export default LoginForm;
+export default withRouter(LoginForm);
