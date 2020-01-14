@@ -1,5 +1,5 @@
 class Api::PostsController < ApplicationController
-      def new
+    def new
     end
 
     def create
@@ -14,6 +14,7 @@ class Api::PostsController < ApplicationController
     
     def index
         @posts = Post.includes(:author).includes(:likes).all
+        @popularPosts = Post.joins(:likes).order("count(likes.id) desc").group(:id).limit(5)
     end
 
     def show

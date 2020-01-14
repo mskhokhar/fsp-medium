@@ -1,0 +1,24 @@
+.story-side-index-container{
+    display: flex;
+    margin-top: 50px;
+    width: 264px;
+    padding: 32px;
+    flex-direction: column;
+    position: sticky;
+    top: 50px;
+}
+
+.side-index-heading{
+    color: rgba(0,0,0,0.84);
+    fill: rgba(0,0,0,0.84);
+    font-family: 'Noto Sans', sans-serif;
+    padding-bottom: 16px;
+    font-weight: 600;
+    font-size: 20px;
+    width: 264px;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+.side-index-1 {
+    display: flex;
+    margin-top: 32px;
+}

@@ -15,23 +15,27 @@ class Feed extends React.Component {
     render(){
         const { posts, fetchPost, currentUserId } = this.props;
         return (
-            <div className="feed">
-                <div className="feed-editor-picks"></div>
-                <div className="feed-user-based">
-                    <ul className="all-feed-posts">
+            <div className="story-index-container">
+                <div className="story-top-index-container"></div>
+                <section className="parent">
+                    <div className="bottom-left">
                         {Object.values(posts).map(post => (
-                            <li key={post.id}>
                                 < Post
+                                    key={post.id}
                                     fetchPost={fetchPost}
                                     post={post}
                                     currentUserId={currentUserId}
                                 />
-                            </li>
                         ))}
-                    </ul>
+                    </div>
                     
-                    <div className="popular"></div>
-                </div>
+                    <div className="bottom-right">
+                        <div className="story-side-index-container">
+                            <h3 class="side-index-heading">Popular on Blogium</h3>
+                            <div>popularPost</div>
+                        </div>
+                    </div>
+                </section>
             </div>
         );
     }
