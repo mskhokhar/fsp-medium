@@ -1,3 +1,4 @@
+import { withRouter } from 'react-router-dom';
 import React from 'react';
 
 class SignupForm extends React.Component {
@@ -17,8 +18,12 @@ class SignupForm extends React.Component {
     }
     handleSubmit(e) {
         e.preventDefault();
-        this.props.processForm(this.state).then(this.props.closeModal(), this.props.openModal('signup'));
+        this.props.processForm(this.state).then(this.successfulLogin(), this.props.openModal('signup'));
         ;
+    }
+    successfulLogin() {
+        this.props.closeModal();
+        this.props.history.push('/feed')
     }
     render() {
         const {  errors } = this.props;
@@ -78,4 +83,4 @@ class SignupForm extends React.Component {
         );
     }
 }
-export default SignupForm;
+export default withRouter(SignupForm);

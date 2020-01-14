@@ -12,8 +12,12 @@ class Api::UsersController < ApplicationController
         end
     end
 
+    def index
+        @users = User.includes(:liked_posts).includes(:authored_posts).all
+    end
+
     def show
-        @user = User.includes(:authored_posts).find(params[:id])
+        @user = User.includes(:liked_posts).includes(:authored_posts).find(params[:id])
     end
     
 

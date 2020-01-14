@@ -5,6 +5,7 @@ import Root from './components/root';
 import {login, logout} from './actions/session_actions';
 import {postUser} from './utils/session_api_util';
 import { fetchPosts } from './actions/posts_actions'
+import { likePost, unlikePost } from './actions/like_actions';
 
 
 
@@ -33,6 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
     window.dispatch = store.dispatch;
     window.postUser = postUser;
     window.fetchPosts = fetchPosts;
+    window.likePost = likePost;
+    window.unlikePost = unlikePost;
 
     ReactDOM.render(< Root store={store}/>, root);
 });

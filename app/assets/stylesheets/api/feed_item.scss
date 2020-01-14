@@ -1,0 +1,72 @@
+.feed-item-container{
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 30px;
+}
+.feed-item-title{
+    font-family: 'Noto Sans', sans-serif;
+    padding: 30px;
+    font-family: 'Noto Sans', sans-serif;
+    padding: 60px;
+    padding-bottom: 15px;
+    font-size: 40px;
+    color: rgba(0,0,0,0.8);
+}
+.feed-item-category{
+    padding-left: 70px;
+    color: rgba(0, 0, 0, 0.54);
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.feed-info{
+    display: flex;
+    width: 600px;
+    justify-content: space-between;
+    padding: 60px;
+    font-family: 'Noto Sans', sans-serif;
+    color: rgba(0,0,0,0.8);
+}
+
+.feed-item-info{
+    display: flex;
+}
+
+#feed-item-info-icon{
+    font-size: 50px;
+}
+
+.author-name{
+    padding: 5px;
+    padding-left: 10px;
+    font-size: 20px;
+    color: rgba(0,0,0,0.84);
+}
+.creation-date{
+    padding-left: 10px;
+    font-size: 13px;
+    color: rgba(0,0,0,0.54);
+}
+#feed-item-like-btn{
+    font-size: 50px;
+}
+.feed-item-img{
+    width: 600px;
+    margin-left: 60px;
+    border-radius: 5px;
+}
+.feed-item-body{
+    min-width: 600px;
+    max-width: 600px;
+    margin: 60px;
+    display: block;
+    color: rgba(0,0,0,0.84);
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: -0.072px;
+    line-height: 28.44px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    text-rendering: optimizeLegibility;
+}
