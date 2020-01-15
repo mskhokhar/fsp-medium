@@ -17,5 +17,5 @@ export const createPost = formData => (
         data: formData,
         contentType: false,
         processData: false
-    }).then(response => console.log('successfull', response))
+    })
 );

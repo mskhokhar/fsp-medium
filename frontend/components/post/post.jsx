@@ -29,8 +29,8 @@ class Post extends React.Component{
                         </div>
                     </div>
                 </div>
-                <div className="story-index-item-image-container">
-                    <img src={post.photoUrl} alt=""/>
+                <div style={{ backgroundImage: `url(${post.photoUrl})`}}className="story-index-item-image-container">
+                    {/* <img src={post.photoUrl} alt=""/> */}
                 </div>
             </div>
         );

@@ -26,17 +26,11 @@ class NewFeedItem extends React.Component{
         formData.append('post[author_id]', this.state.author_id);
         formData.append('post[picture]', this.state.photoFile);
         console.log('formData',formData);
-        // this.props.createNewFeedItem(formData);
-        $.ajax({
-            url: 'api/posts',
-            method: 'POST',
-            data: formData,
-            contentType: false,
-            processData: false
-        }).then(post => {
-            this.props.action(post);
-            this.props.history.push(`/feed/${post.id}`)
-        })
+        this.props.createNewFeedItem(formData)
+            .then(post => {
+                this.props.action(post);
+                this.props.history.push(`/feed/${post.id}`)
+            });
     }
     update(field) {
         
