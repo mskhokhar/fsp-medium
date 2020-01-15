@@ -6,8 +6,6 @@ import {login, logout} from './actions/session_actions';
 import {postUser} from './utils/session_api_util';
 import { fetchPosts } from './actions/posts_actions'
 import { likePost, unlikePost } from './actions/like_actions';
-import{ categories} from './utils/category_state';
-
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root");
@@ -18,8 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const preloadedState = {
             entities: {
                 users: { [window.currentUser.id]: window.currentUser },
-                posts: {},
-                category: categories
+                posts: {}
             },
             session: { currentUserId: window.currentUser.id }
         };

@@ -1,4 +1,5 @@
 import React from 'react';
+import {categories} from '../../utils/category_state';
 
 class FeedItem extends React.Component{
     constructor(props){
@@ -27,6 +28,7 @@ class FeedItem extends React.Component{
         let like;
         if(post){
             author = users[post.author_id];
+            console.log('author', author)
             if (likes[post.id]) {
                 like = (<i onClick={() => this.handleUnlike(likes[post.id])} className="material-icons " id="feed-item-like-btn">
                             favorite
@@ -41,10 +43,11 @@ class FeedItem extends React.Component{
             return null;
         }
         return (
+        
             <div className="feed-item-container">
                 <div>
                     <div className="feed-item-title">{post.title}</div>
-                    <div className="feed-item-category">-belongs to Health</div>
+                    <div className="feed-item-category">-&nbsp;belongs to&nbsp;{categories[post.category_id].name}</div>
                 </div>
                 <div className="feed-info">
                     <div className="feed-item-info">
@@ -54,7 +57,7 @@ class FeedItem extends React.Component{
                             </i>
                         </div>
                         <div >
-                            <div className="author-name">{author.first_name} {author.last_name}</div>
+                            <div className="author-name">{author.first_name}&nbsp;{author.last_name}</div>
                             <div className="creation-date">{post.updated_at}</div>
                         </div>
                     </div>

@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
 import Feed from './feed';
 import { fetchPosts, fetchPost } from '../../actions/posts_actions'
+import {categories} from '../../utils/category_state';
 
 const mapStateToProps = state => ({
     posts: state.entities.posts,
-    // likedPosts: state.entities.users[state.session.currentUserId].liked_posts,
-    currentUserId: state.session.currentUserId
+    currentUserId: state.session.currentUserId,
+    popularPosts: state.entities.popularPosts,
+    users: state.entities.users
 });
 
 const mapDispatchToProps = dispatch => ({

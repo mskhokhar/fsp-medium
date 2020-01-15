@@ -1,6 +1,7 @@
 import {
     retrieveAllPosts,
-    retrievePost
+    retrievePost,
+    createPost
 } from '../utils/posts_api_util';
 
 export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS';
@@ -27,9 +28,14 @@ const deleteLike = payload => {
         payload
     }
 }
+
 export const fetchPosts = () => dispatch => retrieveAllPosts()
     .then( posts => dispatch(receiveAllPosts(posts)) );
 
 export const fetchPost = postId => dispatch => retrievePost(postId)
     .then( post => dispatch(receivePost(post)) );
 
+export const createNewFeedItem = post => dispatch => (
+    createPost(post)
+        .then(post => dispatch(receivePost(post)))
+);

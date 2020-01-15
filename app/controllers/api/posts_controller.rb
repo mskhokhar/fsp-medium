@@ -14,12 +14,11 @@ class Api::PostsController < ApplicationController
     
     def index
         @posts = Post.includes(:author).includes(:likes).all
-        @popularPosts = Post.joins(:likes).order("count(likes.id) desc").group(:id).limit(5)
+        @popular_posts = Post.joins(:likes).order("count(likes.id) desc").group(:id).limit(4)
     end
 
     def show
         @post = Post.includes(:likes).find(params[:id])
-        
     end
     
 

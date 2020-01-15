@@ -7,7 +7,7 @@ json.posts do
     end
 end
 json.popularPosts do 
-    @popularPosts.each do |post|
+    @popular_posts.each do |post|
         json.set! post.id do
             json.partial! "show", post: post
         end
