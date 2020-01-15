@@ -1,11 +1,12 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import NavbarContainer from './navbar/navbar_container';
 import Modal from './modal/modal';
 import Home from './home/home_container';
 import { AuthRoute, ProtectedRoute } from '../utils/route_util';
 import FeedContainer from '../components/feed/feed_container';
-import FeedItemContainer from '../components/feed_Item/feed_item_container'
+import FeedItemContainer from '../components/feed_Item/feed_item_container';
+import NewFeedItemContainer from '../components/new_feed_item/new_feed_item_container';
 
 const App = () => (
     <div>
@@ -13,8 +14,11 @@ const App = () => (
             < Modal />
             < NavbarContainer />
             < ProtectedRoute exact path='/' component={Home} />
-            < AuthRoute exact path='/feed' component={FeedContainer} />
-            < AuthRoute exact path='/feed/:postId' component={FeedItemContainer}/>
+            <Switch>
+                < AuthRoute exact path='/feed' component={FeedContainer} />
+                < AuthRoute exact path='/feed/new' component={NewFeedItemContainer} />
+                < AuthRoute exact path='/feed/:postId' component={FeedItemContainer} />
+            </Switch>
         </div>
         <footer >
             <div>

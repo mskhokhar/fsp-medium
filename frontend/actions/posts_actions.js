@@ -15,7 +15,7 @@ const receiveAllPosts = payload => {
     };
 };
 
-const receivePost = post => {
+export const receivePost = post => {
     return {
         type: RECEIVE_POST,
         post
@@ -35,7 +35,10 @@ export const fetchPosts = () => dispatch => retrieveAllPosts()
 export const fetchPost = postId => dispatch => retrievePost(postId)
     .then( post => dispatch(receivePost(post)) );
 
-export const createNewFeedItem = post => dispatch => (
-    createPost(post)
-        .then(post => dispatch(receivePost(post)))
-);
+// export const createNewFeedItem = post => dispatch => (
+//     createPost(post)
+//         .then(response => {
+//             console.log('response in action',response);
+//             dispatch(receivePost(response));
+//         })
+// );

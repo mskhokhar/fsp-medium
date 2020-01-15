@@ -5,7 +5,6 @@ class Api::PostsController < ApplicationController
     def create
         @post = Post.new(post_params)
         if @post.save
-            login(@post)
             render :show
         else
             render json: @post.errors.full_messages, status: 422
@@ -14,7 +13,7 @@ class Api::PostsController < ApplicationController
     
     def index
         @posts = Post.includes(:author).includes(:likes).all
-        @popular_posts = Post.joins(:likes).order("count(likes.id) desc").group(:id).limit(4)
+        @popular_posts = Post.joins(:likes).order("count(likes.id) desc").group(:id).limit(5)
     end
 
     def show
@@ -24,6 +23,6 @@ class Api::PostsController < ApplicationController
 
     private
     def post_params
-        params.require(:post).permit(:title, :body, :category_id)
+        params.require(:post).permit(:title, :body, :category_id, :author_id, :picture)
     end
 end
