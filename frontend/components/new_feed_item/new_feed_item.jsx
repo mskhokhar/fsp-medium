@@ -13,6 +13,7 @@ class NewFeedItem extends React.Component{
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
+        this.doResize = this.doResize.bind(this);
     }
     handleSubmit(e) {
         e.preventDefault();
@@ -40,45 +41,86 @@ class NewFeedItem extends React.Component{
             this.setState({ [field]: e.currentTarget.value });
         }
     }
+    doResize() {
+        let textbox = document.getElementById('description-id')
+
+        let maxrows = 5;
+        let txt = textbox.value;
+        let cols = textbox.cols;
+
+        let arraytxt = txt.split('\n');
+        let rows = arraytxt.length;
+
+        for (i = 0; i < arraytxt.length; i++)
+            rows += parseInt(arraytxt[i].length / cols);
+
+        if (rows > maxrows) textbox.rows += maxrows;
+        else textbox.rows = rows;
+    }
     handleFile(e){
         this.setState({photoFile: e.currentTarget.files[0]});
     }
     render(){
         return (
-            <form onSubmit={this.handleSubmit}>
-                <h1>Add an article to this beautiful collection</h1>
-                <div>
-                    <div>Title</div>
-                    <input type="text" value={this.state.title} onChange={this.update('title')}/>
+            <form className="new-feed-form" onSubmit={this.handleSubmit}>
+                <div className="new-feed-header-container">
+                    
+                    <h1 className="new-feed-header">Contribute to this beautiful collection</h1>
                 </div>
                 <div>
-                    <div>Category</div>
-                    <select defaultValue="" onChange={this.update('category_id')}>
-                        <option value="">--Select one--</option>
-                        <option value={1}>Business</option>
-                        <option value={2}>Education</option>
-                        <option value={3}>Food</option>
-                        <option value={4} >Health</option>
-                        <option value={5}>LGBTQIAA</option>
-                        <option value={6}>Psychology</option>
-                        <option value={7}>Relationships</option>
-                        <option value={8} >Technology</option>
-                        <option value={9} >Work</option>
-                    </select>
+                    <input id="new-feed-submit-button" type="submit" value="Publish" />
+                </div>
+                <div className="new-feed-title-container">
+                    <input type="text" placeholder="Title" value={this.state.title} onChange={this.update('title')} />
                 </div>
                 <div>
-                    <div>Body</div>
-                    <div>
-                        <textarea cols="30" rows="10" value={this.state.body} onChange={this.update('body')}></textarea>
+                    <div className="new-feed-category-container">
+                        
+                        <div style={{ padding: '25px' }}>
+                            
+                            <select className="new-feed-select" defaultValue="" onChange={this.update('category_id')}>
+                                <option value="">--Select a Category--</option>
+                                <option value={1}>Business</option>
+                                <option value={2}>Education</option>
+                                <option value={3}>Food</option>
+                                <option value={4} >Health</option>
+                                <option value={5}>LGBTQIAA</option>
+                                <option value={6}>Psychology</option>
+                                <option value={7}>Relationships</option>
+                                <option value={8} >Technology</option>
+                                <option value={9} >Work</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="new-feed-file">
+                                <i id="attachment-icon" className="material-icons">
+                                    add_circle_outline
+                            </i>
+                            </label>
+                        </div>
+                        
                     </div>
-                </div>
-                <div>
-                    <div>Attach a picture</div>
                     <div>
-                        <input type="file"  onChange={this.handleFile}/>
+
+                        <div>
+                            <input id="new-feed-file" type="file" onChange={this.handleFile} />
+                        </div>
                     </div>
+                    
+                    <div className="new-feed-textarea">
+                        <textarea 
+                        id="description-id" 
+                        placeholder="Content" 
+                        // cols="20" 
+                        // rows="1" 
+                        value={this.state.body} 
+                        onChange={this.update('body')}
+                        onKeyUp={this.doResize}
+                        ></textarea>
+                    </div>
+                    
                 </div>
-                <input type="submit" value="Add it"/>
+                
             </form>
         );
     }

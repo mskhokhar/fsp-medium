@@ -12,8 +12,10 @@ class Api::PostsController < ApplicationController
     end
     
     def index
-        @posts = Post.includes(:author).includes(:likes).all
+        @posts = Post.includes(:author).includes(:likes).order(updated_at: :desc).all
         @popular_posts = Post.joins(:likes).order("count(likes.id) desc").group(:id).limit(5)
+        user = User.find_by(username: 'starwars_01')
+        @editor_picks = user.liked_posts.limit(5)
     end
 
     def show

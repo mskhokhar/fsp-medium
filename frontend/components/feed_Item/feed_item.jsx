@@ -28,7 +28,6 @@ class FeedItem extends React.Component{
         let like;
         if(post){
             author = users[post.author_id];
-            console.log('author', author)
             if (likes[post.id]) {
                 like = (<i onClick={() => this.handleUnlike(likes[post.id])} className="material-icons " id="feed-item-like-btn">
                             favorite
@@ -52,11 +51,9 @@ class FeedItem extends React.Component{
                 <div className="feed-info">
                     <div className="feed-item-info">
                         <div >
-                            <i className="material-icons" id="feed-item-info-icon">
-                                face
-                            </i>
+                            <i className="material-icons" id="feed-item-info-icon">account_circle</i>
                         </div>
-                        <div >
+                        <div className="feed-item-info-details">
                             <div className="author-name">{author.first_name}&nbsp;{author.last_name}</div>
                             <div className="creation-date">{post.updated_at}</div>
                         </div>

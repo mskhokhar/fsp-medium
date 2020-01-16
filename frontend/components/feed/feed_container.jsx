@@ -7,7 +7,8 @@ const mapStateToProps = state => ({
     posts: state.entities.posts,
     currentUserId: state.session.currentUserId,
     popularPosts: state.entities.popularPosts,
-    users: state.entities.users
+    users: state.entities.users,
+    editorPicks: state.entities.editorPicks
 });
 
 const mapDispatchToProps = dispatch => ({

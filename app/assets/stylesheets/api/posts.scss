@@ -5,11 +5,7 @@
     margin: auto;
     max-width: 1200px;
 }
-.story-top-index-container{
-    display: flex;
-    height: 430px;
-    border-bottom: 1px solid rgba(0,0,0,0.15);
-}
+
 .story-index-item-continer:hover{
     cursor: pointer;
 }
@@ -31,8 +27,6 @@
     min-width: 0
 }
 .story-index-item-image-container{
-    // width: 152px;
-    // height: 133px;
     margin-left: 20px;
     background-size: cover;
     background-position: center;
@@ -40,14 +34,8 @@
     max-height: 152px;
     min-width: 152px;
     min-height: 133px;
-    border-radius: 5px;
 }
-.story-index-item-image-container > img {
-    //  max-width: 152px;
-    // max-height: 152px;
-    // min-width: 152px;
-    // min-height: 133px;
-}
+
 .story-index-item-title{
     color: rgba(0,0,0,0.84);
     fill: rgba(0,0,0,0.84);
