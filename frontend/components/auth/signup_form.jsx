@@ -13,6 +13,11 @@ class SignupForm extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
+        this.redirect = this.redirect.bind(this);
+
+    }
+    redirect() {
+        this.props.history.push('/feed');
     }
     update(field) {
         return e => this.setState({ [field]: e.target.value })
@@ -27,7 +32,7 @@ class SignupForm extends React.Component {
     }
     successfulLogin() {
         this.props.closeModal();
-        this.props.history.push('/feed')
+        setTimeout(this.redirect, 1000);
     }
     render() {
         const {  errors } = this.props;
