@@ -7,8 +7,6 @@ import {postUser} from './utils/session_api_util';
 import { fetchPosts } from './actions/posts_actions'
 import { likePost, unlikePost } from './actions/like_actions';
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root");
 

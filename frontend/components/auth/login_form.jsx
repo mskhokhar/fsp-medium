@@ -9,8 +9,39 @@ class LoginForm extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleGuestLogin = this.handleGuestLogin.bind(this);
+        this.handleSignup = this.handleSignup.bind(this);
         this.redirect = this.redirect.bind(this);
         this.successfulLogin = this.successfulLogin.bind(this);
+        this.autoFillLogin = this.autoFillLogin.bind(this);
+    }
+    autoFillLogin() {
+            let username = this.props.demoUser.username.split("");
+            let password = this.props.demoUser.password.split("");
+            const emailInterval = setInterval(() => {
+                const first = username.splice(0, 1);
+                this.setState(
+                    { username: this.state.username + first[0] },
+                    () => {
+                        if (!username.length) {
+                            clearInterval(emailInterval);
+                            const passwordInterval = setInterval(() => {
+                                const first = password.splice(0, 1);
+                                this.setState(
+                                    { password: this.state.password + first[0] },
+                                    () => {
+                                        if (!password.length) {
+                                            clearInterval(passwordInterval)
+                                            this.props.processForm(this.state).then(this.successfulLogin());
+                                        }
+
+                                    }
+                                )
+                            }, 50)
+                        }
+                    }
+                );
+            }, 50);
+        
     }
     update(field){
         return e => this.setState({[field]: e.target.value})
@@ -22,18 +53,23 @@ class LoginForm extends React.Component {
     }
     successfulLogin(){
         this.props.closeModal();
-        setTimeout(this.redirect,500);
+        setTimeout(this.redirect,1000);
     }
     redirect(){
         this.props.history.push('/feed');
     }
+    handleSignup(){
+        this.props.openModal('signup');
+    }
     handleGuestLogin(e) {
-        e.preventDefault();
-        const guestUser = {
-            username: 'starwars_01',
-            password: '123456'
-        }
-        this.props.processForm(guestUser).then(this.successfulLogin());
+        // e.preventDefault();
+        // const guestUser = {
+        //     username: 'guest_user',
+        //     password: '123456'
+        // }
+        // this.props.demoUser = guestUser;
+        // this.props.processForm(guestUser).then(this.successfulLogin());
+
     }
     
     render(){
@@ -61,7 +97,8 @@ class LoginForm extends React.Component {
                                 onChange={this.update('password')}
                             />
                             <input className='submit-button'  type="submit"  value='LogIn' />
-                            <input className='submit-button' onClick={this.handleGuestLogin} type="button" value='Guest Login' />
+                            <input className='submit-button' onClick={this.autoFillLogin} type="button" value='Guest Login' />
+                            <span onClick={this.handleSignup} className="login-form-signup">No Account? <span>Create one</span></span>
                         </div>
                     </form>
                     <ul className="auth-errors">

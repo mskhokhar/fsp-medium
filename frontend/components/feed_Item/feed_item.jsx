@@ -1,4 +1,7 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+
+import {categories} from '../../utils/category_state';
 
 class FeedItem extends React.Component{
     constructor(props){
@@ -6,6 +9,14 @@ class FeedItem extends React.Component{
 
         this.handleLike = this.handleLike.bind(this);
         this.handleUnlike = this.handleUnlike.bind(this);
+        this.handlePublish = this.handlePublish.bind(this);
+        this.handleBackToFeed = this.handleBackToFeed.bind(this);
+    }
+    handlePublish() {
+        this.props.history.push('/feed/new');
+    }
+    handleBackToFeed() {
+        this.props.history.push('/feed');
     }
     handleLike(){
         let like = {
@@ -41,20 +52,23 @@ class FeedItem extends React.Component{
             return null;
         }
         return (
+        
             <div className="feed-item-container">
+                <div style={{marginTop: '-30px'}} className="navigation-buttons">
+                    <div onClick={this.handleBackToFeed} className="new-feed-submit-button">Feed</div>
+                    <div onClick={this.handlePublish} className="new-feed-submit-button">Publish</div>
+                </div>
                 <div>
                     <div className="feed-item-title">{post.title}</div>
-                    <div className="feed-item-category">-belongs to Health</div>
+                    <div className="feed-item-category">-&nbsp;belongs to&nbsp;{categories[post.category_id].name}</div>
                 </div>
                 <div className="feed-info">
                     <div className="feed-item-info">
                         <div >
-                            <i className="material-icons" id="feed-item-info-icon">
-                                face
-                            </i>
+                            <i className="material-icons" id="feed-item-info-icon">account_circle</i>
                         </div>
-                        <div >
-                            <div className="author-name">{author.first_name} {author.last_name}</div>
+                        <div className="feed-item-info-details">
+                            <div className="author-name">{author.first_name}&nbsp;{author.last_name}</div>
                             <div className="creation-date">{post.updated_at}</div>
                         </div>
                     </div>
@@ -66,4 +80,4 @@ class FeedItem extends React.Component{
         );
     }
 }
-export default FeedItem;
+export default withRouter(FeedItem);

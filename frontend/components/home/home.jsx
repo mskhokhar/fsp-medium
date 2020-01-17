@@ -126,7 +126,7 @@ class Home extends React.Component{
                 <div className="about-container-intro">
                     <div>
                         <p>We do things differently.</p>
-                        <p>Medium is not like any other platform on the internet. <span className="highlighted" >Our sole purpose is to help you find compelling ideas, knowledge, and perspectives.</span> We don’t serve ads—we serve you, the curious reader who loves to learn new things. Medium is home to thousands of independent voices, and we combine humans and technology to find the best reading for you—and filter out the rest.</p>
+                        <p>Blogium is not like any other platform on the internet. <span className="highlighted" >Our sole purpose is to help you find compelling ideas, knowledge, and perspectives.</span> We don’t serve ads—we serve you, the curious reader who loves to learn new things. Medium is home to thousands of independent voices, and we combine humans and technology to find the best reading for you—and filter out the rest.</p>
                     </div>
                 </div>
                 <hr className="hr" />

@@ -12,6 +12,7 @@ class SignupForm extends React.Component {
             password: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleLogin = this.handleLogin.bind(this);
     }
     update(field) {
         return e => this.setState({ [field]: e.target.value })
@@ -21,6 +22,9 @@ class SignupForm extends React.Component {
         this.props.processForm(this.state).then(this.successfulLogin(), this.props.openModal('signup'));
         ;
     }
+    handleLogin(){
+        this.props.openModal('login');
+    }
     successfulLogin() {
         this.props.closeModal();
         this.props.history.push('/feed')
@@ -28,7 +32,7 @@ class SignupForm extends React.Component {
     render() {
         const {  errors } = this.props;
         return (
-            <div className='auth-form'>
+            <div style={{height: '550px'}}className='auth-form' >
                 <div className='auth-img-container' ><img src={window.signup1} alt="" /></div>
                 <div>
                     <form onSubmit={this.handleSubmit}>
@@ -37,19 +41,6 @@ class SignupForm extends React.Component {
                             <p className="auth-intro">Create an account to receive great stories in your inbox, personalize your homepage, and follow authors and topics that you love.</p>
                     </div>
                     <div className='signup-auth-form-credentials'>
-                        <input
-                            type="text"
-                            value={this.state.first_name}
-                            onChange={this.update('first_name')}
-                            placeholder="First Name"
-                        />
-                        <input
-                            type="text"
-                            value={this.state.last_name}
-                            onChange={this.update('last_name')}
-                            placeholder="Last Name"
-
-                        />
                         <input
                             type="text"
                             value={this.state.username}
@@ -71,9 +62,25 @@ class SignupForm extends React.Component {
                             placeholder="Password"
 
                         />
+                        <input
+                            type="text"
+                            value={this.state.first_name}
+                            onChange={this.update('first_name')}
+                            placeholder="First Name"
+                        />
+                        <input
+                            type="text"
+                            value={this.state.last_name}
+                            onChange={this.update('last_name')}
+                            placeholder="Last Name"
+
+                        />
                         <input className='signup-submit-button' type="submit" value='Sign Up' />
                     </div>
                     </form>
+                    <div className="signup-form-login">
+                        <span onClick={this.handleLogin} >Already have an account? <a>Sign in</a></span>
+                    </div>
                     <ul className="auth-errors">
                         <li>{errors[0]}</li>     
                     </ul>

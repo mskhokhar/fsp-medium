@@ -1,5 +1,5 @@
 <script >
-    window.webLogo = "<%= image_url('blogium_1.png') %>"
+    window.webLogo = "<%= image_url('logo.png') %>"
     window.auth_back_1 = "<%= image_url('auth_container_background.png') %>"
     window.auth_back_2 = "<%= image_url('auth_container_back2.png') %>"
 
@@ -17,17 +17,17 @@
     
     window.github = "<%= image_url('Octocat.png') %>"
     window.linkedIn = "<%= image_url('linkedIn.png') %>"
+    window.nav_git ="<%= image_url('github_navbar.png') %>"
+    window.nav_linkedIn ="<%= image_url('linkedIn_navbar.png') %>"
 
     window.tick_circle = "<%= image_url('tick_circle.png') %>"
+
+    window.no_post = "<%= image_url('no_story.png') %>"
     
 </script>
 <% if current_user %>
       <script>
-        window.currentUser = {
-          'id': <%= current_user.id %>,
-          'username': '<%= current_user.username %>',
-          'email': '<%= current_user.email %>'
-        }
+        window.currentUser = <%= render('api/users/show.json.jbuilder', user: current_user).html_safe %>
       </script>
     <% end %>
 <main id="root"></main>

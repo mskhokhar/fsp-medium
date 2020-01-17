@@ -1,0 +1,128 @@
+.editor-picks-container{
+    display: flex;
+    height: 430px;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    font-family: 'Noto Sans', sans-serif;
+}
+.editor-picks-left{
+    width: 340px;
+    height: 334px;
+    margin-right: 25px;
+}
+.editor-picks-center{
+    width: 445px;
+    height: 340px;
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+.editor-picks-right{
+    width: 340px;
+    height: 334px;
+}
+.editor-picks-side-img{
+    margin-left: 20px;
+    background-size: cover;
+    background-position: center;
+    max-width: 340px;
+    max-height: 150px;
+    min-width: 340;
+    min-height: 150px;
+    // border-radius: 5px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+.editor-left-content{
+    width: 316px;
+    height: 145px;
+}
+.editor-left-title{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    color: rgba(0,0,0,0.84);
+    margin-bottom: 16px;
+    font-weight: 600;
+    font-size: 20px;
+    margin-left: 20px;
+    line-height: 23px;
+}
+.editor-left-body{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgba(0,0,0,0.54);
+    font-weight: 400;
+    letter-spacing: 0;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    margin-left: 20px;
+}
+.editor-left-author{
+    display: block;
+    letter-spacing: 0;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 400;
+    color: rgba(0,0,0,0.84);
+    margin-bottom: 4px
+}
+.editor-left-details{
+    color: rgba(0,0,0,0.54);
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0;
+    font-size: 13px;
+    line-height: 20px;
+    display: flex;
+}
+.editor-left-details-container{
+    margin-left: 20px;
+    margin-top: -10px;
+}
+.editor-side-container:hover{
+    cursor: pointer;
+}
+.editor-center-container{
+    display: flex;
+    margin-bottom: 25px;
+}
+.editor-center-container:hover{
+    cursor: pointer;
+}
+.editor-center-img{
+    width: 100px;
+    height: 100px;
+    margin-right: 25px;
+    background-size: cover;
+    background-position: center;
+}
+.editor-center-details-container{
+    display: flex;
+    flex-direction: column;
+}
+.editor-center-details{
+    display: flex;
+    color: rgba(0,0,0,0.54);
+    letter-spacing: 0;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.editor-center-title{
+    color: rgba(0,0,0,0.84);
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+.editor-center-author{
+    display: block;
+    letter-spacing: 0;
+    font-size: 15px;
+    line-height: 20px;
+    color: rgba(0,0,0,0.84);
+    margin-bottom: 4px;
+}
