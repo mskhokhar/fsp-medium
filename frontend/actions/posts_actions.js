@@ -7,6 +7,7 @@ import {
 export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS';
 export const RECEIVE_POST = 'RECEIVE_POST';
 export const DELETE_LIKE = "DELETE_LIKE";
+export const RECEIVE_CREATE_POST_ERRORS = 'RECEIVE_CREATE_POST_ERRORS';
 
 const receiveAllPosts = payload => {
     return {
@@ -28,6 +29,10 @@ const deleteLike = payload => {
         payload
     }
 }
+export const receiveCreatePostErrors = errors => ({
+    type: RECEIVE_CREATE_POST_ERRORS,
+    errors
+});
 
 export const fetchPosts = () => dispatch => retrieveAllPosts()
     .then( posts => dispatch(receiveAllPosts(posts)) );

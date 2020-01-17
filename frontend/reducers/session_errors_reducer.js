@@ -2,6 +2,7 @@ import {
     RECEIVE_CURRENT_USER,
     RECEIVE_ERRORS
 } from '../actions/session_actions';
+import { RECEIVE_CREATE_POST_ERRORS } from '../actions/posts_actions'
 import {
     CLOSE_MODAL
 } from '../actions/modal_actions';
@@ -14,6 +15,9 @@ const sessionErrorsReducer= (state = [], action) => {
             return _nullErrors;
         case RECEIVE_ERRORS:
             return action.errors.responseJSON;
+        case RECEIVE_CREATE_POST_ERRORS:
+            console.log("in reducer",action.errors)
+            return null;
         case CLOSE_MODAL:
             return [];
         default:

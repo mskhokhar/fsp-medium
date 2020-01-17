@@ -1,4 +1,6 @@
+import { withRouter } from 'react-router-dom';
 import React from 'react';
+import { link } from 'react-router-dom';
 
 class Navbar extends React.Component{
     constructor(props){
@@ -6,6 +8,7 @@ class Navbar extends React.Component{
         
         this.handleClick = this.handleClick.bind(this);
         this.handleSignup = this.handleSignup.bind(this);
+        this.createNewPost = this.createNewPost.bind(this);
     }
     componentDidMount(){
         document.addEventListener('click', this.onclick);
@@ -17,6 +20,9 @@ class Navbar extends React.Component{
         }else{
             this.props.openModal('login');
         }
+    }
+    createNewPost(){
+        this.props.history.push(`/feed/new`);
     }
     handleSignup(e){
         e.preventDefault();
@@ -40,16 +46,16 @@ class Navbar extends React.Component{
     render(){
         let action = 'Sign out';
         const {currentUser} = this.props;
-        // console.log(currentUser);
         let signup;
         let username; 
         let new_post;
         let own_posts;
         let own_followers;
+        let welcome_message;
         if (!currentUser) {
             action = 'Sign In';
             signup = (
-                <li className='navbar-right-signout' onClick={this.handleSignup}>Signup</li>
+                <li className='navbar-right-signout' onClick={this.handleSignup}>Get started</li>
             );
             username = (
                 <a onClick={() => this.props.openModal('signup')}>Click to join this beautiful community.</a>
@@ -57,24 +63,31 @@ class Navbar extends React.Component{
         }else{
             username = currentUser.username;
             new_post = (
-                <div>Create new post</div>
+                <div onClick={this.createNewPost}>Create new post</div>
             );
             own_posts = (
                 <div>Posts</div>
             );
-            own_followers = (
-                <div>Followers</div>
+            welcome_message = (
+                <li className="welcome-message">
+                    Hello {username}
+                </li>
             );
+            // own_followers = (
+            //     <div>Followers</div>
+            // );
         }
         return (
             <ul className='navbar'> 
                 <li ><img className='logo' src={window.webLogo} alt="logo"/></li>
+                
                 <li>
                     <ul className='navbar-right'>
-                        <li className='navbar-right-search'>
+                        {/* <li className='navbar-right-search'>
                             <i className="material-icons" id="navbar-icon">search</i>
                             <input type="text" placeholder="Search Blogium"/>
-                        </li>
+                        </li> */}
+                        {welcome_message}
                         <li className='navbar-right-notification'>
                             <i className="material-icons" id="navbar-icon">
                                 notifications_active
@@ -107,4 +120,4 @@ class Navbar extends React.Component{
         );
     }
 }
-export default Navbar;
+export default withRouter(Navbar);

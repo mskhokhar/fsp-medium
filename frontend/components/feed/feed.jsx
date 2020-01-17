@@ -18,13 +18,13 @@ class Feed extends React.Component {
     render(){
         const { posts, fetchPost, currentUserId, popularPosts, users, editorPicks } = this.props;
         let postLeft = Object.values(editorPicks)[0];
-        if(!postLeft){
-            return null;
-        }
         let postRight = Object.values(editorPicks)[4];
         let postsCenter = Object.values(editorPicks).slice(1,4);
-        return (
-            <div className="story-index-container">
+        if(!posts || !postLeft || !postRight){
+            return null;
+        }
+            return (
+                <div className="story-index-container">
                 <div className="editor-picks-container">
                     <div className="editor-picks-left">
                             <EditorPicksSide

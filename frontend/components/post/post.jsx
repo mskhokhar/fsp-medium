@@ -9,7 +9,7 @@ class Post extends React.Component{
     }
    
     openShowPage() {
-        this.props.history.push(`/feed/${this.props.post.id}`)
+        this.props.history.push(`/feed/${this.props.post.id}`);
     }
     render(){
         const {post, author} = this.props;

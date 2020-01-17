@@ -9,6 +9,7 @@ class LoginForm extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleGuestLogin = this.handleGuestLogin.bind(this);
+        this.handleSignup = this.handleSignup.bind(this);
         this.redirect = this.redirect.bind(this);
         this.successfulLogin = this.successfulLogin.bind(this);
     }
@@ -22,10 +23,13 @@ class LoginForm extends React.Component {
     }
     successfulLogin(){
         this.props.closeModal();
-        setTimeout(this.redirect,500);
+        setTimeout(this.redirect,1000);
     }
     redirect(){
         this.props.history.push('/feed');
+    }
+    handleSignup(){
+        this.props.openModal('signup');
     }
     handleGuestLogin(e) {
         e.preventDefault();
@@ -62,6 +66,7 @@ class LoginForm extends React.Component {
                             />
                             <input className='submit-button'  type="submit"  value='LogIn' />
                             <input className='submit-button' onClick={this.handleGuestLogin} type="button" value='Guest Login' />
+                            <span onClick={this.handleSignup} className="login-form-signup">No Account? <span>Create one</span></span>
                         </div>
                     </form>
                     <ul className="auth-errors">

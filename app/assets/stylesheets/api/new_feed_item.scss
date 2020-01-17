@@ -51,6 +51,7 @@
     color: #32c671;
     font-weight: 200;
     margin-top: 50px;
+    outline: none;
 }
 .new-feed-select{
     appearance: none;
@@ -81,6 +82,7 @@
     width: 600px;
     margin-top: 50px;
     margin-bottom: 50px;
+    min-height: 220px;
 }
 #description-id{
     width: 100%;
@@ -90,4 +92,10 @@
     margin-top: 30px;
     outline: none;
     color: rgba(0,0,0,0.84);
+}
+.new-feed-picture-preview > img{
+    display: flex;
+    margin: auto;
+    max-height: 400px;
+
 }

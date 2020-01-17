@@ -2,14 +2,34 @@
     list-style-type: none;
     display: flex;
     justify-content: space-between ;
-    padding: 4px;
-    margin: 4px;
-    margin-top: 15px;
+    max-width: 1200px;
+    margin: auto;
  }
+ .navbar-container{
+    top: 0px;
+    background-color: white;
+    padding-top: 30px;
+    position: sticky;
+    padding-bottom: 30px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.4)
+ }
+.navbar-border{
+    margin-top: 30px;
+    height: 12px;
+    border: 0;
+    box-shadow: inset 0 6px 12px -12px rgba(0, 0, 0, 0.5);
+}
  .navbar-right{
      list-style-type: none;
      display: inline-flex;
+     justify-content: flex-end;
+    font-family: 'Noto Sans', sans-serif;
+    color: rgba(0,0,0,0.54);
      min-width: 440px;
+ }
+ .welcome-message{
+    padding-top: 12px;
+    color: rgba(0,0,0,0.84);
  }
  .navbar-right-search{
     display: flex;
@@ -118,3 +138,5 @@ font-family: 'Noto Sans', sans-serif;
     display: inline-block;
     margin: auto;
 }
+
+
