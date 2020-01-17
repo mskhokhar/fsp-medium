@@ -16,7 +16,6 @@ const sessionErrorsReducer= (state = [], action) => {
         case RECEIVE_ERRORS:
             return action.errors.responseJSON;
         case RECEIVE_CREATE_POST_ERRORS:
-            console.log("in reducer",action.errors)
             return null;
         case CLOSE_MODAL:
             return [];

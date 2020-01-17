@@ -42,7 +42,6 @@ class NewFeedItem extends React.Component{
     update(field) {
         
         return e => {
-            // console.log('target',e.target);
             
             this.setState({ [field]: e.currentTarget.value });
         }
@@ -77,12 +76,9 @@ class NewFeedItem extends React.Component{
     }
     handleFile(e){
         const file = e.currentTarget.files[0];
-        console.log('file', typeof e.currentTarget.value[0]);
-        console.log('currentTarget', e.currentTarget.value);
         const fileReader = new FileReader();
         fileReader.onloadend = () => {
             this.setState({photoFile: file, photoUrl: fileReader.result });
-            console.log('state', this.state);
             
         }
         if(file){

@@ -7,7 +7,6 @@ export default (state = {}, action) => {
         case RECEIVE_ALL_POSTS:
             return Object.assign({}, action.payload.posts);
         case RECEIVE_POST:
-            // debugger;
             return Object.assign(nextState,{[action.post.id]: action.post})
         default:
             return state;
