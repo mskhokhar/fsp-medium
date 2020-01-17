@@ -111,7 +111,7 @@ food_1 = Post.create!({
 
     "This is the first study to examine the ways in which breakfast before exercise influences our responses to meals after exercise," says co-lead researcher Dr. Javier Gonzalez.',
     title: 'How does eating before a workout affect the body',
-    author_id: guest_user.id,
+    author_id: demo_user.id,
     category_id: food.id
 
 })

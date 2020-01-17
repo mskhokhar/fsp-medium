@@ -16,6 +16,7 @@ class NewFeedItem extends React.Component{
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
         this.doResize = this.doResize.bind(this);
+        this.handleBackToFeed = this.handleBackToFeed.bind(this);
     }
     handleSubmit(e) {
         e.preventDefault();
@@ -25,7 +26,6 @@ class NewFeedItem extends React.Component{
         formData.append('post[category_id]', this.state.category_id);
         formData.append('post[author_id]', this.state.author_id);
         formData.append('post[picture]', this.state.photoFile);
-        console.log('formData',formData);
         if(this.state.photoUrl === null){
             this.setState({errors: ["Picture must be attached"]});
         }else{
@@ -72,6 +72,9 @@ class NewFeedItem extends React.Component{
         if (rows > maxrows) textbox.rows += maxrows;
         else textbox.rows = rows;
     }
+    handleBackToFeed(){
+        this.props.history.push('/feed');
+    }
     handleFile(e){
         const file = e.currentTarget.files[0];
         console.log('file', typeof e.currentTarget.value[0]);
@@ -90,6 +93,9 @@ class NewFeedItem extends React.Component{
         const preview = this.state.photoUrl ? <img src={this.state.photoUrl} alt=""/> : null; 
         return (
             <div>
+                <div onClick={this.handleBackToFeed} className="profile-publish-container">
+                    <div className="new-feed-submit-button">Feed</div>
+                </div>
                 <form className="new-feed-form" onSubmit={this.handleSubmit}>
                     <div className="new-feed-header-container">
 

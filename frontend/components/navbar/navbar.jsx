@@ -9,9 +9,17 @@ class Navbar extends React.Component{
         this.handleClick = this.handleClick.bind(this);
         this.handleSignup = this.handleSignup.bind(this);
         this.createNewPost = this.createNewPost.bind(this);
+        this.handleOwnProfile = this.handleOwnProfile.bind(this);
+        this.handleLogoCLick = this.handleLogoCLick.bind(this);
+        this.handleAlert = this.handleAlert.bind(this);
     }
     componentDidMount(){
         document.addEventListener('click', this.onclick);
+    }
+    handleOwnProfile(){
+        if(this.props.currentUser){
+            this.props.history.push(`/users/${this.props.currentUser.id}`)
+        }
     }
     handleClick(e){
         e.preventDefault();
@@ -20,6 +28,14 @@ class Navbar extends React.Component{
         }else{
             this.props.openModal('login');
         }
+    }
+    handleLogoCLick(){
+        if (this.props.currentUser) {
+            this.props.history.push('/feed');
+        } 
+    }
+    handleAlert(){
+        alert("Weclome to Blogium! My name is Manraj Singh. Hire me if you think it's a decent app. My email is manrajkhokhar1995@gmail.com and linkedIn and github repo for this project is in footer. Thanks for visiting. ");
     }
     createNewPost(){
         this.props.history.push(`/feed/new`);
@@ -66,10 +82,10 @@ class Navbar extends React.Component{
                 <div onClick={this.createNewPost}>Create new post</div>
             );
             own_posts = (
-                <div>Posts</div>
+                <div onClick={() => this.props.history.push(`/users/${currentUser.id}`)}>Posts</div>
             );
             welcome_message = (
-                <li className="welcome-message">
+                <li onClick={() => this.props.history.push(`/users/${currentUser.id}`)} className="welcome-message">
                     Hello {username}
                 </li>
             );
@@ -79,7 +95,7 @@ class Navbar extends React.Component{
         }
         return (
             <ul className='navbar'> 
-                <li ><img className='logo' src={window.webLogo} alt="logo"/></li>
+                <li onClick={this.handleLogoCLick} ><img className='logo' src={window.webLogo} alt="logo"/></li>
                 
                 <li>
                     <ul className='navbar-right'>
@@ -88,9 +104,9 @@ class Navbar extends React.Component{
                             <input type="text" placeholder="Search Blogium"/>
                         </li> */}
                         {welcome_message}
-                        <li className='navbar-right-notification'>
+                        <li onClick={this.handleAlert} className='navbar-right-notification'>
                             <i className="material-icons" id="navbar-icon">
-                                notifications_active
+                                mail_outline
                             </i>
                         </li>
                         <li className='navbar-right-profile'>
@@ -99,7 +115,7 @@ class Navbar extends React.Component{
                             </i>
                             <div id="profileDropdown" className="dropdown-content">
                                
-                                <div >
+                                <div onClick={this.handleOwnProfile}>
                                     <div className="dropdown-profile">
                                         <i className="material-icons" id="dropdown-profile-icon">
                                             account_circle

@@ -8,6 +8,7 @@ import FeedContainer from '../components/feed/feed_container';
 import FeedItemContainer from '../components/feed_Item/feed_item_container';
 import NewFeedItemContainer from '../components/new_feed_item/new_feed_item_container';
 import FooterContainer from '../components/footer/footer_container';
+import ProfileContainer from '../components/profile/profile_container';
 
 const App = () => (
     <div>
@@ -22,6 +23,7 @@ const App = () => (
                     < AuthRoute exact path='/feed' component={FeedContainer} />
                     < AuthRoute exact path='/feed/new' component={NewFeedItemContainer} />
                     < AuthRoute exact path='/feed/:postId' component={FeedItemContainer} />
+                    < AuthRoute exact path='/users/:userId' component={ProfileContainer} />
                 </Switch>
             </div>
        </div>
