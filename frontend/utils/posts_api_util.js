@@ -19,3 +19,20 @@ export const createPost = formData => (
         processData: false
     })
 );
+
+export const removePost = postId => (
+    $.ajax({
+        url: `api/posts/${postId}`,
+        method: 'DELETE'
+    })
+);
+
+export const editPost = formData => (
+    $.ajax({
+        url: `api/posts/${post.id}`,
+        method: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false
+    })
+);

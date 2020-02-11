@@ -21,6 +21,24 @@ class Api::PostsController < ApplicationController
     def show
         @post = Post.includes(:likes).find(params[:id])
     end
+
+    def destroy
+        @post = Post.find(params[:id])
+        if @post.delete
+            render json: 'Post deleted successfully', status: 200
+        else
+            render json: @post.errors.full_messages, status: 422 
+        end
+    end
+
+    def update
+        @post = Post.find(params[:id])
+        if @post.update(post_params)
+            render :show
+        else
+            render json: @post.errors.full_messages, status: 422
+        end
+    end
     
 
     private

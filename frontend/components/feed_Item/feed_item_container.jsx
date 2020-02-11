@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import FeedItem from './feed_item';
 import { fetchCUserLikes} from '../../actions/like_actions';
-import { fetchPosts, fetchPost } from '../../actions/posts_actions'
+import { fetchPosts, fetchPost, deletePost } from '../../actions/posts_actions'
 import { likePost, unlikePost } from '../../actions/like_actions';
 import { extractPosts } from '../../reducers/selector';
 
@@ -22,7 +22,8 @@ const mapDispatchToProps = dispatch => ({
     unlikePost: likeId => dispatch(unlikePost(likeId)),
     fetchCUserLikes: () => dispatch(fetchCUserLikes()),
     fetchPosts: () => dispatch(fetchPosts()),
-    fetchPost: (postId) => dispatch(fetchPost(postId))
+    fetchPost: (postId) => dispatch(fetchPost(postId)),
+    deletePost: postId => dispatch(deletePost(postId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FeedItem);

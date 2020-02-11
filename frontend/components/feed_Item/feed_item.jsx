@@ -11,6 +11,7 @@ class FeedItem extends React.Component{
         this.handleUnlike = this.handleUnlike.bind(this);
         this.handlePublish = this.handlePublish.bind(this);
         this.handleBackToFeed = this.handleBackToFeed.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
     handlePublish() {
         this.props.history.push('/feed/new');
@@ -28,14 +29,25 @@ class FeedItem extends React.Component{
     handleUnlike(likeId){
         this.props.unlikePost(likeId);
     }
+    handleDelete(){
+        this.props.deletePost(this.props.post.id)
+            .then(
+                () => {
+                    this.props.history.push('/feed');
+                }
+                
+            )
+    }
     componentDidMount(){
         this.props.fetchCUserLikes();
         this.props.fetchPost(this.props.match.params.postId);
     }
     render(){
-        const { likes, post, users } = this.props;
+        const { likes, post, users, currentUserId } = this.props;
         let author;
         let like;
+        let removePost;
+        let updatePost;
         if(post){
             author = users[post.author_id];
             if (likes[post.id]) {
@@ -46,6 +58,14 @@ class FeedItem extends React.Component{
                 like = (<i onClick={this.handleLike} className="material-icons " id="feed-item-like-btn">
                             favorite_border
                         </i>)
+            }
+            if (author.id === currentUserId) {
+                removePost = (
+                    <div className="new-feed-submit-button" onClick={this.handleDelete}>Delete</div>
+                );
+                updatePost = (
+                    <div className="new-feed-submit-button">Update</div>
+                )
             }
         }
         if(!post){
@@ -58,6 +78,8 @@ class FeedItem extends React.Component{
                     <div onClick={this.handleBackToFeed} className="new-feed-submit-button">Feed</div>
                     <div onClick={this.handlePublish} className="new-feed-submit-button">Publish</div>
                 </div>
+                {updatePost}
+
                 <div>
                     <div className="feed-item-title">{post.title}</div>
                     <div className="feed-item-category">-&nbsp;belongs to&nbsp;{categories[post.category_id].name}</div>
@@ -76,6 +98,7 @@ class FeedItem extends React.Component{
                 </div>
                 <div><img className="feed-item-img" src={post.photoUrl} alt={post.title} /></div>
                 <div className="feed-item-body">{post.body}</div>
+                {removePost}
             </div>
         );
     }
