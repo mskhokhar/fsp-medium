@@ -2,7 +2,8 @@ import {
     retrieveAllPosts,
     retrievePost,
     createPost,
-    removePost
+    removePost,
+    editPost
 } from '../utils/posts_api_util';
 
 export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS';
@@ -45,6 +46,9 @@ export const fetchPost = postId => dispatch => retrievePost(postId)
 export const createNewFeedItem = post  => createPost(post);
 
 export const deletePost = postId => dispatch => removePost(postId)
-    .then( post => dispatch(destroyPost(post)) )
+    .then( post => dispatch(destroyPost(post)) );
+
+export const updatePost = (formData, postId) => dispatch => editPost(formData,postId)
+    .then(post => dispatch(receivePost(post)) )
         
 

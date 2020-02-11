@@ -27,9 +27,9 @@ export const removePost = postId => (
     })
 );
 
-export const editPost = formData => (
+export const editPost = (formData, postId )=> (
     $.ajax({
-        url: `api/posts/${post.id}`,
+        url: `api/posts/${postId}`,
         method: 'POST',
         data: formData,
         contentType: false,

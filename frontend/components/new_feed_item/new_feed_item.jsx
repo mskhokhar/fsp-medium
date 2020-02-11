@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import TextareaAutosize from "react-autosize-textarea";
 
 class NewFeedItem extends React.Component{
     constructor(props){
@@ -15,7 +16,6 @@ class NewFeedItem extends React.Component{
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
-        this.doResize = this.doResize.bind(this);
         this.handleBackToFeed = this.handleBackToFeed.bind(this);
     }
     handleSubmit(e) {
@@ -56,22 +56,6 @@ class NewFeedItem extends React.Component{
             );
         }
     }
-    doResize() {
-        let textbox = document.getElementById('description-id')
-
-        let maxrows = 5;
-        let txt = textbox.value;
-        let cols = textbox.cols;
-
-        let arraytxt = txt.split('\n');
-        let rows = arraytxt.length;
-
-        for (let i = 0; i < arraytxt.length; i++)
-            rows += parseInt(arraytxt[i].length / cols);
-
-        if (rows > maxrows) textbox.rows += maxrows;
-        else textbox.rows = rows;
-    }
     handleBackToFeed(){
         this.props.history.push('/feed');
     }
@@ -92,77 +76,85 @@ class NewFeedItem extends React.Component{
     render(){
         const preview = this.state.photoUrl ? <img src={this.state.photoUrl} alt=""/> : null; 
         return (
-            <div>
-                <div onClick={this.handleBackToFeed} className="profile-publish-container">
-                    <div className="new-feed-submit-button">Feed</div>
-                </div>
-                <form className="new-feed-form" onSubmit={this.handleSubmit}>
-                    <div className="new-feed-header-container">
-
-                        <h1 className="new-feed-header">Contribute to this beautiful collection</h1>
-                    </div>
-                    <div>
-                        {this.returnErrors()}
-                    </div>
-                    <div>
-                        <input id="new-feed-submit-button" type="submit" value="Publish" />
-                    </div>
-                    <div className="new-feed-title-container">
-                        <input type="text" placeholder="Title" value={this.state.title} onChange={this.update('title')} />
-                    </div>
-                    <div>
-                        <div className="new-feed-category-container">
-
-                            <div style={{ padding: '25px' }}>
-
-                                <select className="new-feed-select" defaultValue="" onChange={this.update('category_id')}>
-                                    <option value="">--Select a Category--</option>
-                                    <option value={1}>Business</option>
-                                    <option value={2}>Education</option>
-                                    <option value={3}>Food</option>
-                                    <option value={4} >Health</option>
-                                    <option value={5}>LGBTQIAA</option>
-                                    <option value={6}>Psychology</option>
-                                    <option value={7}>Relationships</option>
-                                    <option value={8} >Technology</option>
-                                    <option value={9} >Work</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label htmlFor="new-feed-file">
-                                    <i id="attachment-icon" className="material-icons">
-                                        add_circle_outline
-                                    </i>
-                                </label>
-                            </div>
-
-                        </div>
-                        <div>
-                            <div>
-                                <input id="new-feed-file" type="file" onChange={this.handleFile} />
-                            </div>
-                        </div>
-                        <div className="new-feed-picture-preview">
-                            {preview}
-                        </div>
-
-                        <div className="new-feed-textarea">
-                            <textarea
-                                id="description-id"
-                                placeholder="Content"
-                                // cols="20" 
-                                // rows="1" 
-                                value={this.state.body}
-                                onChange={this.update('body')}
-                                onKeyUp={this.doResize}
-                            ></textarea>
-                        </div>
-
-                    </div>
-
-                </form>
-                
+          <div>
+            <div
+              onClick={this.handleBackToFeed}
+              className="profile-publish-container"
+            >
+              <div className="new-feed-submit-button">Feed</div>
             </div>
+            <form className="new-feed-form" onSubmit={this.handleSubmit}>
+              <div className="new-feed-header-container">
+                <h1 className="new-feed-header">
+                  Contribute to this beautiful collection
+                </h1>
+              </div>
+              <div>{this.returnErrors()}</div>
+              <div>
+                <input
+                  id="new-feed-submit-button"
+                  type="submit"
+                  value="Publish"
+                />
+              </div>
+              <div className="new-feed-title-container">
+                <input
+                  type="text"
+                  placeholder="Title"
+                  value={this.state.title}
+                  onChange={this.update("title")}
+                />
+              </div>
+              <div>
+                <div className="new-feed-category-container">
+                  <div style={{ padding: "25px" }}>
+                    <select
+                      className="new-feed-select"
+                      defaultValue=""
+                      onChange={this.update("category_id")}
+                    >
+                      <option value="">--Select a Category--</option>
+                      <option value={1}>Business</option>
+                      <option value={2}>Education</option>
+                      <option value={3}>Food</option>
+                      <option value={4}>Health</option>
+                      <option value={5}>LGBTQIAA</option>
+                      <option value={6}>Psychology</option>
+                      <option value={7}>Relationships</option>
+                      <option value={8}>Technology</option>
+                      <option value={9}>Work</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="new-feed-file">
+                      <i id="attachment-icon" className="material-icons">
+                        add_circle_outline
+                      </i>
+                    </label>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <input
+                      id="new-feed-file"
+                      type="file"
+                      onChange={this.handleFile}
+                    />
+                  </div>
+                </div>
+                <div className="new-feed-picture-preview">{preview}</div>
+
+                <div className="new-feed-textarea">
+                  <TextareaAutosize
+                    id="description-id"
+                    placeholder="Content"
+                    value={this.state.body}
+                    onChange={this.update("body")}
+                  ></TextareaAutosize>
+                </div>
+              </div>
+            </form>
+          </div>
         );
     }
 }
