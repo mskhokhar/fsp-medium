@@ -48,7 +48,6 @@ export const createNewFeedItem = post  => createPost(post);
 export const deletePost = postId => dispatch => removePost(postId)
     .then( post => dispatch(destroyPost(post)) );
 
-export const updatePost = (formData, postId) => dispatch => editPost(formData,postId)
-    .then(post => dispatch(receivePost(post)) )
+export const updatePost = (formData, postId) => editPost(formData,postId);
         
 
