@@ -10,7 +10,7 @@ class UpdatePost extends React.Component {
       body: this.props.post.body,
       category_id: this.props.post.category_id,
       photoUrl: null,
-      photoFile: this.props.post.picture,
+      photoFile: this.props.post.photoUrl,
       errors: []
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -76,9 +76,11 @@ class UpdatePost extends React.Component {
     }
   }
   render() {
+    console.log('1', this.state.photoUrl);
+    console.log('2', this.props.post);
     const preview = this.state.photoUrl ? (
       <img src={this.state.photoUrl} alt="" />
-    ) : null;
+    ) : <img src={this.state.photoFile} alt="" />;
     return (
       <div>
         <div
@@ -90,7 +92,7 @@ class UpdatePost extends React.Component {
         <form className="new-feed-form" onSubmit={this.handleSubmit}>
           <div className="new-feed-header-container">
             <h1 className="new-feed-header">
-              Contribute to this beautiful collection
+              Update your story
             </h1>
           </div>
           <div>{this.returnErrors()}</div>
