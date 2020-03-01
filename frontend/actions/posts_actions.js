@@ -26,9 +26,9 @@ export const receivePost = post => {
     };
 };
 
-const destroyPost = payload => ({
+const destroyPost = postId => ({
     type: DESTROY_POST,
-    payload
+    postId
 })
 
 
@@ -46,7 +46,9 @@ export const fetchPost = postId => dispatch => retrievePost(postId)
 export const createNewFeedItem = post  => createPost(post);
 
 export const deletePost = postId => dispatch => removePost(postId)
-    .then( post => dispatch(destroyPost(post)) );
+    .then( () => {
+        dispatch(destroyPost(postId))
+    } );
 
 export const updatePost = (formData, postId) => editPost(formData,postId);
         

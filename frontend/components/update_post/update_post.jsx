@@ -64,8 +64,6 @@ class UpdatePost extends React.Component {
   }
   handleFile(e) {
     const file = e.currentTarget.files[0];
-    // console.log("file", typeof e.currentTarget.value[0]);
-    // console.log("currentTarget", e.currentTarget.value);
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
       this.setState({ photoFile: file, photoUrl: fileReader.result });
