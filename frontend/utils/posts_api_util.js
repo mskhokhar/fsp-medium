@@ -30,7 +30,7 @@ export const removePost = postId => (
 export const editPost = (formData, postId )=> (
     $.ajax({
         url: `api/posts/${postId}`,
-        method: 'POST',
+        method: 'PATCH',
         data: formData,
         contentType: false,
         processData: false

@@ -28,7 +28,7 @@ class UpdatePost extends React.Component {
     formData.append("post[category_id]", this.state.category_id);
     formData.append("post[author_id]", this.state.author_id);
     formData.append("post[picture]", this.state.photoFile);
-    if (this.state.photoUrl === null) {
+    if (this.state.photoFile === null) {
       this.setState({ errors: ["Picture must be attached"] });
     } else {
       this.props.updatePost(formData, this.props.post.id).then(
