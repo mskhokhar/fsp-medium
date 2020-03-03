@@ -93,8 +93,8 @@ class UpdatePost extends React.Component {
             </h1>
           </div>
           <div>{this.returnErrors()}</div>
-          <div>
-            <input id="new-feed-submit-button" type="submit" value="Publish" />
+          <div >
+            <input id="new-feed-submit-button" type="submit" value="Update" />
           </div>
           <div className="new-feed-title-container">
             <input
@@ -105,7 +105,7 @@ class UpdatePost extends React.Component {
             />
           </div>
           <div>
-            <div className="new-feed-category-container">
+            {/* <div className="new-feed-category-container">
               <div>
                 <label htmlFor="new-feed-file">
                   <i id="attachment-icon" className="material-icons">
@@ -122,7 +122,7 @@ class UpdatePost extends React.Component {
                   onChange={this.handleFile}
                 />
               </div>
-            </div>
+            </div> */}
             <div className="new-feed-picture-preview">{preview}</div>
 
             <div className="new-feed-textarea">

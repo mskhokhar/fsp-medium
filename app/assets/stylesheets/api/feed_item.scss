@@ -81,3 +81,9 @@
     word-break: break-word;
     text-rendering: optimizeLegibility;
 }
+.action-button-container{
+    display: flex;
+    justify-content: space-around;
+    margin-top: -3rem;
+    margin-bottom: 3rem;
+}

@@ -12,6 +12,7 @@ class FeedItem extends React.Component{
         this.handlePublish = this.handlePublish.bind(this);
         this.handleBackToFeed = this.handleBackToFeed.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+        this.handleUpdate = this.handleUpdate.bind(this);
     }
     handlePublish() {
         this.props.history.push('/feed/new');
@@ -37,6 +38,9 @@ class FeedItem extends React.Component{
                 }
                 
             )
+    }
+    handleUpdate(){
+        this.props.history.push(`/feed/${this.props.post.id}/update`)
     }
     componentDidMount(){
         this.props.fetchCUserLikes();
@@ -64,7 +68,7 @@ class FeedItem extends React.Component{
                     <div className="new-feed-submit-button" onClick={this.handleDelete}>Delete</div>
                 );
                 updatePost = (
-                    <div className="new-feed-submit-button">Update</div>
+                    <div className="new-feed-submit-button" onClick={this.handleUpdate}>Update</div>
                 )
             }
         }
@@ -78,7 +82,6 @@ class FeedItem extends React.Component{
                     <div onClick={this.handleBackToFeed} className="new-feed-submit-button">Feed</div>
                     <div onClick={this.handlePublish} className="new-feed-submit-button">Publish</div>
                 </div>
-                {updatePost}
 
                 <div>
                     <div className="feed-item-title">{post.title}</div>
@@ -98,7 +101,10 @@ class FeedItem extends React.Component{
                 </div>
                 <div><img className="feed-item-img" src={post.photoUrl} alt={post.title} /></div>
                 <div className="feed-item-body">{post.body}</div>
-                {removePost}
+                <div className="action-button-container">
+                    {updatePost}
+                    {removePost}
+                </div>
             </div>
         );
     }
