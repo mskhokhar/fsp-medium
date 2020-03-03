@@ -10,6 +10,7 @@ class UpdatePost extends React.Component {
       body: this.props.post.body,
       category_id: this.props.post.category_id,
       photoUrl: null,
+      oldPhotoFile: this.props.post.photoFile,
       photoFile: this.props.post.photoUrl,
       errors: []
     };
@@ -27,17 +28,17 @@ class UpdatePost extends React.Component {
     formData.append("post[body]", this.state.body);
     formData.append("post[category_id]", this.state.category_id);
     formData.append("post[author_id]", this.state.author_id);
-    formData.append("post[picture]", this.state.photoFile);
-    if (this.state.photoFile === null) {
-      this.setState({ errors: ["Picture must be attached"] });
-    } else {
-      this.props.updatePost(formData, this.props.post.id).then(
-        post => this.successfull(post),
-        error => {
-          this.setState({ errors: error.responseJSON });
-        }
-      );
-    }
+    // if (typeof this.state.photoFile !== 'string') {
+    //   formData.append("post[picture]", this.state.photoFile);
+    // }
+    
+    this.props.updatePost(formData, this.props.post.id).then(
+      post => this.successfull(post),
+      error => {
+        this.setState({ errors: error.responseJSON });
+      }
+    );
+    
   }
   successfull(post) {
     this.props.action(post);
@@ -74,8 +75,6 @@ class UpdatePost extends React.Component {
     }
   }
   render() {
-    console.log('1', this.state.photoUrl);
-    console.log('2', this.props.post);
     const preview = this.state.photoUrl ? (
       <img src={this.state.photoUrl} alt="" />
     ) : <img src={this.state.photoFile} alt="" />;
