@@ -46,8 +46,6 @@ class UpdatePost extends React.Component {
   }
   update(field) {
     return e => {
-      // console.log('target',e.target);
-
       this.setState({ [field]: e.currentTarget.value });
     };
   }

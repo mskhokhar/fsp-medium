@@ -9,7 +9,7 @@ import FeedItemContainer from '../components/feed_Item/feed_item_container';
 import NewFeedItemContainer from '../components/new_feed_item/new_feed_item_container';
 import FooterContainer from '../components/footer/footer_container';
 import ProfileContainer from '../components/profile/profile_container';
-import UpdatePostContainer from '../components/update_post/update_post_container';
+import UpdatePostContainer from "../components/update_post/update_post_container";
 
 const App = () => (
   <div>

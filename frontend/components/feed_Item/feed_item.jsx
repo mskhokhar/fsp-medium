@@ -33,10 +33,7 @@ class FeedItem extends React.Component{
     handleDelete(){
         this.props.deletePost(this.props.post.id)
             .then(
-                () => {
-                    this.props.history.push('/feed');
-                }
-                
+                this.props.history.push('/feed')
             )
     }
     handleUpdate(){
