@@ -13,6 +13,7 @@ class FeedItem extends React.Component{
         this.handleBackToFeed = this.handleBackToFeed.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.handleUpdate = this.handleUpdate.bind(this);
+        this.successfullyDeleted = this.successfullyDeleted.bind(this);
     }
     handlePublish() {
         this.props.history.push('/feed/new');
@@ -33,8 +34,12 @@ class FeedItem extends React.Component{
     handleDelete(){
         this.props.deletePost(this.props.post.id)
             .then(
-                this.props.history.push('/feed')
+                this.successfullyDeleted()
             )
+    }
+    successfullyDeleted(){
+        this.props.history.push('/feed');
+        setTimeout(() => alert('Post deleted successfully'), 1500)
     }
     handleUpdate(){
         this.props.history.push(`/feed/${this.props.post.id}/update`)

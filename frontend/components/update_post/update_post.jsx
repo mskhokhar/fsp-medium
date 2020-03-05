@@ -43,7 +43,9 @@ class UpdatePost extends React.Component {
   successfull(post) {
     this.props.action(post);
     this.props.history.push(`/feed/${post.id}`);
+    setTimeout(() => alert('Post updated successfully'), 1500)
   }
+  
   update(field) {
     return e => {
       this.setState({ [field]: e.currentTarget.value });
@@ -78,6 +80,7 @@ class UpdatePost extends React.Component {
     ) : <img src={this.state.photoFile} alt="" />;
     return (
       <div>
+        <div id="snackbar">Updated successfully</div>
         <div
           onClick={this.handleBackToFeed}
           className="profile-publish-container"
