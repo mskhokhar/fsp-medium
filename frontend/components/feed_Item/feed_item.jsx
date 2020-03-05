@@ -68,6 +68,8 @@ class FeedItem extends React.Component{
                     <div className="new-feed-submit-button" onClick={this.handleUpdate}>Update</div>
                 )
             }
+            console.log('photoFile in show', post.photoUrl)
+
         }
         if(!post){
             return null;

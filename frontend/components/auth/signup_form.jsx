@@ -29,31 +29,35 @@ class SignupForm extends React.Component {
     }
     successfulLogin() {
         this.props.closeModal();
+        console.log('hitting 1');
         this.props.history.push('/feed')
+        console.log('hitting 2');
+
     }
     unsuccessfulLogin(){
-        let username = document.getElementById('signup-username');
-        let email = document.getElementById('signup-email');
-        let password = document.getElementById('signup-password');
-        if (this.state.username === "") {
-            username.className = 'signup-error';
-        }else{
-            username.classList.remove('signup-error');
-        }
-        if (this.state.email === "") {
-            email.className = 'signup-error'
-        }else{
-            email.classList.remove('signup-error');
-        }
-        if (this.state.password.length < 6) {
-            password.className = 'signup-error';
-        }else{
-            password.classList.remove('signup-error');
-        }
         this.props.openModal('signup')
     }
     render() {
         const {  errors } = this.props;
+        if(errors.length !== 0){
+            if (this.state.username === "" || errors[0].includes('Username')) {
+                document.getElementById('signup-username').className = 'signup-error'
+            }else {
+                document.getElementById('signup-username').classList.remove('signup-error');
+            }
+            if (this.state.email === "" || errors[0].includes('Email')) {
+                document.getElementById('signup-email').className = 'signup-error'
+            }else{
+                document.getElementById('signup-email').classList.remove('signup-error');
+            }
+            let password = document.getElementById('signup-password');
+
+            if (this.state.password.length < 6) {
+                password.className = 'signup-error';
+            } else {
+                password.classList.remove('signup-error');
+            }
+        }
         return (
             <div style={{height: '550px'}}className='auth-form' >
                 <div className='auth-img-container' ><img src={window.signup1} alt="" /></div>
