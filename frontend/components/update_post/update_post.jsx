@@ -13,13 +13,14 @@ class UpdatePost extends React.Component {
       oldPhotoFile: this.props.post.photoFile,
       photoFile: this.props.post.photoUrl,
       errors: []
-    };
+      
+    }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
     this.handleBackToFeed = this.handleBackToFeed.bind(this);
   }
   componentDidMount() {
-    this.props.fetchPost(this.props.match.params.postId);
+    this.props.fetchPosts();
   }
   handleSubmit(e) {
     e.preventDefault();
@@ -75,16 +76,20 @@ class UpdatePost extends React.Component {
     }
   }
   render() {
-    console.log('post in update', this.props.post);
-    if(!this.props.post){
+    const {post} = this.props
+    let preview;
+    if (!post || !this.state){
       return null;
     }
-    const preview = this.state.photoUrl ? (
-      <img src={this.state.photoUrl} alt="" />
-    ) : <img src={this.state.photoFile} alt="" />;
+    if (post ) {
+      console.log('preview', this.state)
+      preview = this.state.photoUrl ? (
+        <img src={this.state.photoUrl} alt="" />
+      ) : <img src={this.state.photoFile} alt="" />;
+    }
+  
     return (
       <div>
-        <div id="snackbar">Updated successfully</div>
         <div
           onClick={this.handleBackToFeed}
           className="profile-publish-container"

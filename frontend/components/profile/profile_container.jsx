@@ -9,7 +9,9 @@ const mapStateToProps = (state, ownParams) => {
     profileOwner: owner,
     currentUserId: state.session.currentUserId,
     posts: allPosts.filter(post => post.author_id === owner.id),
-    users: state.entities.users
+    users: state.entities.users,
+    loading: state.ui.loading.indexLoading
+
 }};
 const mapDispatchToProps = dispatch => ({
     fetchPost: postId => dispatch(fetchPost(postId)),
