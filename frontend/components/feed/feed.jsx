@@ -16,10 +16,13 @@ class Feed extends React.Component {
     }
     
     render(){
-        const { posts, fetchPost, currentUserId, popularPosts, users, editorPicks } = this.props;
+        const { posts, fetchPost, currentUserId, popularPosts, users, editorPicks, loading } = this.props;
         let postLeft = Object.values(editorPicks)[0];
         let postRight = Object.values(editorPicks)[4];
         let postsCenter = Object.values(editorPicks).slice(1,4);
+        if(loading){
+            return <div className="loader-container"><div className="loader">Loading...</div></div>
+        }
         if(!posts || !postLeft || !postRight){
             return null;
         }

@@ -75,6 +75,10 @@ class UpdatePost extends React.Component {
     }
   }
   render() {
+    console.log('post in update', this.props.post);
+    if(!this.props.post){
+      return null;
+    }
     const preview = this.state.photoUrl ? (
       <img src={this.state.photoUrl} alt="" />
     ) : <img src={this.state.photoFile} alt="" />;

@@ -13,7 +13,8 @@ const mapStateToProps = (state, ownParams) => {
             likes: state.entities.likes,
             currentUserId: state.session.currentUserId,
             post: posts[ownParams.match.params.postId],
-            users: state.entities.users
+            users: state.entities.users,
+            loading: state.ui.loading.detailLoading
         }
     );
 };

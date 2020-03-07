@@ -49,7 +49,7 @@ class FeedItem extends React.Component{
         this.props.fetchPost(this.props.match.params.postId);
     }
     render(){
-        const { likes, post, users, currentUserId } = this.props;
+        const { likes, post, users, currentUserId, loading } = this.props;
         let author;
         let like;
         let removePost;
@@ -73,8 +73,10 @@ class FeedItem extends React.Component{
                     <div className="new-feed-submit-button" onClick={this.handleUpdate}>Update</div>
                 )
             }
-            console.log('photoFile in show', post.photoUrl)
 
+        }
+        if (loading) {
+            return <div className="loader-container"><div className="loader">Loading...</div></div>
         }
         if(!post){
             return null;

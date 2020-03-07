@@ -13,13 +13,12 @@ class Footer extends React.Component{
             this.props.openModal(modalType)
         }
     }
-    // handleNameClick(){
-    //     if (this.props.currentUser) {
-    //         this.props.history.push('./feed');
-    //     }
-    // }
     render(){
         let logoRoute;
+        const {loading_detail, loading_index} = this.props;
+        if(loading_detail || loading_index){
+            return null;
+        }
         
         return (
             <div className="footer">
