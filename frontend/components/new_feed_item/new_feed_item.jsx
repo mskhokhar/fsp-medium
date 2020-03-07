@@ -25,7 +25,6 @@ class NewFeedItem extends React.Component{
     formData.append('post[body]', this.state.body);
     formData.append('post[category_id]', this.state.category_id);
     formData.append('post[author_id]', this.state.author_id);
-    console.log('photFile',this.state.photoFile);
     formData.append('post[picture]', this.state.photoFile);
     if(this.state.photoUrl === null){
       this.setState({errors: ["Picture must be attached"]});

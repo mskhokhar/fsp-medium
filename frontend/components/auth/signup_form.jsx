@@ -29,9 +29,7 @@ class SignupForm extends React.Component {
     }
     successfulLogin() {
         this.props.closeModal();
-        console.log('hitting 1');
-        this.props.history.push('/feed')
-        console.log('hitting 2');
+        setTimeout(() => this.props.history.push('/feed'),1000)
 
     }
     unsuccessfulLogin(){

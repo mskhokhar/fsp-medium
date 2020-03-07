@@ -69,7 +69,6 @@ class UpdatePost extends React.Component {
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
       this.setState({ photoFile: file, photoUrl: fileReader.result });
-      //   console.log("state", this.state);
     };
     if (file) {
       fileReader.readAsDataURL(file);
@@ -85,7 +84,6 @@ class UpdatePost extends React.Component {
       return null;
     }
     if (post ) {
-      console.log('preview', this.state)
       preview = this.state.photoUrl ? (
         <img src={this.state.photoUrl} alt="" />
       ) : <img src={this.state.photoFile} alt="" />;
