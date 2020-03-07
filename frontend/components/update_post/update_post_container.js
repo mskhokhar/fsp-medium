@@ -8,7 +8,9 @@ import {
 const mapStateToProps = (state, ownParams) => {
     return {
         currentUserId: state.session.currentUserId,
-        post: state.entities.posts[ownParams.match.params.postId]
+        post: state.entities.posts[ownParams.match.params.postId],
+        loading: state.ui.loading.indexLoading
+
     };
 };
 const mapDispatchToProps = dispatch => ({

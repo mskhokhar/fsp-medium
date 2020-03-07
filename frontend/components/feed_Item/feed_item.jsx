@@ -40,7 +40,7 @@ class FeedItem extends React.Component{
     }
     successfullyDeleted(){
         this.props.history.push('/feed');
-        setTimeout(() => alert('Post deleted successfully'), 1500)
+        setTimeout(() => alert('Post deleted successfully'), 2500)
     }
     handleUpdate(){
         this.props.history.push(`/feed/${this.props.post.id}/update`)

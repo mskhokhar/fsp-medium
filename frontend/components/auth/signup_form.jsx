@@ -57,6 +57,16 @@ class SignupForm extends React.Component {
             } else {
                 password.classList.remove('signup-error');
             }
+            if (this.state.first_name === '') {
+                document.getElementById('signup-fname').className = 'signup-error'
+            } else {
+                document.getElementById('signup-fname').classList.remove('signup-error')
+            }
+            if (this.state.last_name === '') {
+                document.getElementById('signup-lname').className = 'signup-error'
+            } else {
+                document.getElementById('signup-lname').classList.remove('signup-error')
+            }
         }
         return (
             <div style={{height: '550px'}}className='auth-form' >

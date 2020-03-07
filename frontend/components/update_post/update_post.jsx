@@ -44,7 +44,7 @@ class UpdatePost extends React.Component {
   successfull(post) {
     this.props.action(post);
     this.props.history.push(`/feed/${post.id}`);
-    setTimeout(() => alert('Post updated successfully'), 1500)
+    setTimeout(() => alert('Post updated successfully'), 2500)
   }
   
   update(field) {
@@ -76,8 +76,11 @@ class UpdatePost extends React.Component {
     }
   }
   render() {
-    const {post} = this.props
+    const {post, loading} = this.props
     let preview;
+    if (loading) {
+      return <div className="loader-container"><div className="loader">Loading...</div></div>
+    }
     if (!post || !this.state){
       return null;
     }
