@@ -7,14 +7,13 @@ import { extractPosts } from '../../reducers/selector';
 
 
 const mapStateToProps = (state, ownParams) => {
-    const posts = extractPosts(state.entities)
     return(
         {
             likes: state.entities.likes,
             currentUserId: state.session.currentUserId,
-            post: posts[ownParams.match.params.postId],
+            post: state.entities.posts[ownParams.match.params.postId],
             users: state.entities.users,
-            loading: state.ui.loading.detailLoading
+            loading: state.ui.loading.indexLoading
         }
     );
 };

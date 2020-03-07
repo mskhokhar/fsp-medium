@@ -1,5 +1,5 @@
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
-import { RECEIVE_ALL_POSTS } from '../actions/posts_actions'
+import { RECEIVE_ALL_POSTS, RECEIVE_POST } from '../actions/posts_actions'
 import { DELETE_LIKE, RECEIVE_LIKE } from '../actions/like_actions';
 
 export default (state = {}, action) => {

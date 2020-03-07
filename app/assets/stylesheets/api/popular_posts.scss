@@ -62,6 +62,10 @@
     fill: rgba(0,0,0,0.84);
     margin-bottom: 4px;
 }
+.side-index-author:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
 .side-index-date{
     color: rgba(0,0,0,0.54);
     fill: rgba(0,0,0,0.54);
