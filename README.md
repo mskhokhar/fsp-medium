@@ -26,11 +26,23 @@ Things you may want to cover:
 
 # Features in development:
 
-* User can add a new post
+* User can view all posts.
 
-* User can like and unlike a post
+* User can see top 5 most liked posts on the website.
 
-* User can view editor's picks
+* User can see editor's picks.
+
+* User can view the post with details.
+
+* User can like and unlike a post.
+
+* User can update a post.
+
+* User can delete a post.
+
+* User can add a new post.
+
+
 
 # To Contribute:
 
