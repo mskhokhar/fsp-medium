@@ -19,9 +19,12 @@ class Profile extends React.Component{
         this.props.history.push('./feed');
     }
     render(){
-        const {profileOwner, posts, currentUserId, fetchPost, users} = this.props;
+        const {profileOwner, posts, currentUserId, fetchPost, users, loading} = this.props;
         let ownPosts;
         let name;
+        if (loading) {
+            return <div className="loader-container"><div className="loader">Loading...</div></div>
+        }
         if (!users || !profileOwner){
             return null;
         }

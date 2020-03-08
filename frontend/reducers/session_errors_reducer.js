@@ -4,7 +4,8 @@ import {
 } from '../actions/session_actions';
 import { RECEIVE_CREATE_POST_ERRORS } from '../actions/posts_actions'
 import {
-    CLOSE_MODAL
+    CLOSE_MODAL,
+    OPEN_MODAL
 } from '../actions/modal_actions';
 
 const _nullErrors = [];
@@ -18,6 +19,8 @@ const sessionErrorsReducer= (state = [], action) => {
         case RECEIVE_CREATE_POST_ERRORS:
             return null;
         case CLOSE_MODAL:
+            return [];
+        case OPEN_MODAL:
             return [];
         default:
             return state

@@ -70,7 +70,7 @@
     min-height: 200px;
     justify-content: space-evenly;
 }
-.auth-form-credentials input{
+.auth-form-credentials > input{
     height: 33px;
     line-height: 25px;
     padding: 0px 14px;
@@ -81,6 +81,22 @@
     color: rgba(0,0,0,0.54);
     outline: none;
 }
+
+.login-auth-error{
+    height: 33px;
+    line-height: 25px;
+    padding: 0px 14px;
+    min-width: 32px;
+    margin: 2px 7px;
+    font-family: 'Noto Sans', sans-serif;
+    border-bottom: 0.1px solid red !important;
+    color: rgba(0,0,0,0.54);;
+    outline: none;
+}
+.login-auth-error::placeholder{
+    color: red;
+}
+
 .signup-auth-form-credentials input{
     height: 33px;
     line-height: 25px;
@@ -91,6 +107,21 @@
     border-bottom: 0.1px solid black;
     color: rgba(0,0,0,0.54);
     outline: none;
+}
+
+.signup-error{
+    height: 33px;
+    line-height: 25px;
+    padding: 0px 14px;
+    min-width: 32px;
+    margin: 2px 7px;
+    font-family: 'Noto Sans', sans-serif;
+    border-bottom: 0.1px solid red !important;
+    color: rgba(0,0,0,0.54);
+    outline: none;
+}
+.signup-error::placeholder{
+    color: red;
 }
 
 .auth-form-intro-container{

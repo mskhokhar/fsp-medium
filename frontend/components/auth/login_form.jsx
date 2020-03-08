@@ -8,10 +8,10 @@ class LoginForm extends React.Component {
             password: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleGuestLogin = this.handleGuestLogin.bind(this);
         this.handleSignup = this.handleSignup.bind(this);
         this.redirect = this.redirect.bind(this);
         this.successfulLogin = this.successfulLogin.bind(this);
+        this.unsuccessfulLogin = this.unsuccessfulLogin.bind(this);
         this.autoFillLogin = this.autoFillLogin.bind(this);
     }
     autoFillLogin() {
@@ -48,28 +48,27 @@ class LoginForm extends React.Component {
     }
     handleSubmit(e){
         e.preventDefault();
-        this.props.processForm(this.state).then(this.successfulLogin(), this.props.openModal('login'));
+        if (this.props.errors.length !== 0) {
+            
+        } else {
+            this.props.processForm(this.state).then(this.successfulLogin(), this.unsuccessfulLogin());
+        }
       
     }
     successfulLogin(){
         this.props.closeModal();
         setTimeout(this.redirect,1000);
     }
+    unsuccessfulLogin(){
+        document.getElementById('login-username').className = 'login-auth-error';
+        document.getElementById('login-password').className = 'login-auth-error';
+        this.props.openModal('login')
+    }
     redirect(){
         this.props.history.push('/feed');
     }
     handleSignup(){
         this.props.openModal('signup');
-    }
-    handleGuestLogin(e) {
-        // e.preventDefault();
-        // const guestUser = {
-        //     username: 'guest_user',
-        //     password: '123456'
-        // }
-        // this.props.demoUser = guestUser;
-        // this.props.processForm(guestUser).then(this.successfulLogin());
-
     }
     
     render(){
@@ -85,12 +84,14 @@ class LoginForm extends React.Component {
                         </div>
                         <div className='auth-form-credentials'>
                             <input
+                                id="login-username"
                                 type="text"
                                 placeholder="Username"
                                 value={this.state.username}
                                 onChange={this.update('username')}
                             />
                             <input
+                                id="login-password"
                                 type="password"
                                 placeholder="Password"
                                 value={this.state.password}
