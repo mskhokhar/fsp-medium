@@ -24,6 +24,8 @@ Things you may want to cover:
 
 * PostgreSQL
 
+* redux-persist
+
 # Features in development:
 
 * User can view all posts.
@@ -41,6 +43,8 @@ Things you may want to cover:
 * User can delete a post.
 
 * User can add a new post.
+
+* User can see profiles of other authors and their posts.
 
 
 
