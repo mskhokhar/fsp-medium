@@ -35,5 +35,5 @@ document.addEventListener("DOMContentLoaded", () => {
     window.likePost = likePost;
     window.unlikePost = unlikePost;
 
-    ReactDOM.render(< Root store={store}/>, root);
+    ReactDOM.render(< Root store={store.store} persistor={store.persistor}/>, root);
 });

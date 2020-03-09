@@ -48,6 +48,7 @@
     font-size: 20px;
     border: 1px solid #32c671;
     border-radius: 5px;
+    text-align: center;
     color: #32c671;
     font-weight: 200;
     margin-top: 50px;
@@ -92,6 +93,9 @@
     margin-top: 30px;
     outline: none;
     color: rgba(0,0,0,0.84);
+}
+.new-feed-picture-preview{
+    margin-top: 4rem
 }
 .new-feed-picture-preview > img{
     display: flex;

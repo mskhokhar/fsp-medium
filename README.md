@@ -5,6 +5,8 @@
 
 Blogium is a project developed by software dev that hopes to let everyone who joins it to publish there knowledge and viewpoint about certain subjects. The site displays all the posts previously published by the users and the fav picks of the site developer. Users can add the articles and like them and responses to each article and user could follow other user in the future update.
 
+![home](https://github.com/mskhokhar/fsp-medium/blob/master/app/assets/images/home.gif)
+
 
 # Technical Specs
 
@@ -34,6 +36,8 @@ Things you may want to cover:
 
 * User can see editor's picks.
 
+![index](https://github.com/mskhokhar/fsp-medium/blob/master/app/assets/images/index.png)
+
 * User can view the post with details.
 
 * User can like and unlike a post.
@@ -42,9 +46,15 @@ Things you may want to cover:
 
 * User can delete a post.
 
+![postItem](https://github.com/mskhokhar/fsp-medium/blob/master/app/assets/images/postItem.gif)
+
 * User can add a new post.
 
+![newPost](https://github.com/mskhokhar/fsp-medium/blob/master/app/assets/images/newPost.png)
+
 * User can see profiles of other authors and their posts.
+
+![index](https://github.com/mskhokhar/fsp-medium/blob/master/app/assets/images/profile.png)
 
 
 
