@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:show, :index, :create, :new, :destroy, :update]
     resources :categories, only: [:show, :index, :create]
     resources :likes, only: [:destroy, :create, :index, :show]
+    resources :followers, only: [:destroy, :create, :index, :show]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

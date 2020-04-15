@@ -8,6 +8,7 @@ class Api::SessionsController < ApplicationController
             render json: ['Invalid username or password'], status: 401
         else
             login(@user)
+            @followings = @user.followings
             render :show
         end
     end
