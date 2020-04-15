@@ -1,31 +1,39 @@
 class Api::LikesController < ApplicationController
    
     def create
-        @like = Like.new(like_params)
-        if @like.save
+        @following = Follower.new(following_params)
+        if @following.save
             render :show
         else
-            render json: @like.errors.full_messages, status: 422
+            render json: @following.errors.full_messages, status: 422
         end
     end
 
     def index
-        @likes = current_user.likes;
-    end
-
-    def show
-        @like = Like.find(params[:id])
+        @followers = current_user.followers;
+        @followings = current_user.followings;
     end
 
     def destroy
-        @like = Like.find(params[:id])
-        @like.delete
+        @follower = Follower.find(params[:id])
+        @follower.delete
         render :show
     end
     
 
     private
-    def like_params
-        params.require(:like).permit(:liker_id, :post_id)
+    def following_params
+        params.require(:follower).permit(:user_id, :follow_used_id)
     end
 end
+# if @followings == nil
+#     json.following nil
+# else
+#     json.followings do 
+#         @followings.each do |following|
+#             json.set! followings.id do
+#                 json.extract! following, :follow_user_id
+#             end
+#         end
+#     end
+# end
