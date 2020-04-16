@@ -14,9 +14,9 @@ const receiveAllFollowers = payload => ({
     payload
 })
 
-const deleteFollower = follower => ({
+const deleteFollower = user_id => ({
     type: DELETE_FOLLOWER,
-    follower
+    user_id
 })
 
 const addFollower = follower => ({
@@ -30,11 +30,10 @@ export const followUser = follower => dispatch => postFollower(follower)
 export const unfollow = followId => dispatch => removeFollower(followId)
     .then(follower => {
         console.log(follower);
-        dispatch(deleteFollower(follower));
+        dispatch(deleteFollower(follower.user_id));
     })
 
 export const fetchAllFollowers = () => dispatch => getFollowers()
     .then(followers => {
-        console.log("followers",followers);
         dispatch(receiveAllFollowers(followers))
     })

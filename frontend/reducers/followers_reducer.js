@@ -8,7 +8,7 @@ export default (state = {}, action) => {
         case ADD_FOLLOWER:
             return Object.assign(nextState, { [action.follower.user_id]: action.follower});
         case DELETE_FOLLOWER:
-            delete nextState[action.follower.user_id]
+            delete nextState[action.user_id]
             return nextState;
         default:
             return state;
