@@ -1,17 +1,20 @@
-class Api::LikesController < ApplicationController
+class Api::FollowersController < ApplicationController
    
     def create
-        @following = Follower.new(following_params)
-        if @following.save
+        @follower = Follower.new(following_params)
+        if @follower.save
             render :show
         else
-            render json: @following.errors.full_messages, status: 422
+            render json: @follower.errors.full_messages, status: 422
         end
     end
 
     def index
-        @followers = current_user.followers;
-        @followings = current_user.followings;
+        @followers = Follower.all.where(["follow_user_id = :follow_user_id ", { follow_user_id: current_user.id }])
+        for follower in @followers do
+            puts follower.id
+        end
+        # @followings = current_user.followings;
     end
 
     def destroy
@@ -23,17 +26,6 @@ class Api::LikesController < ApplicationController
 
     private
     def following_params
-        params.require(:follower).permit(:user_id, :follow_used_id)
+        params.require(:follower).permit(:user_id, :follow_user_id)
     end
 end
-# if @followings == nil
-#     json.following nil
-# else
-#     json.followings do 
-#         @followings.each do |following|
-#             json.set! followings.id do
-#                 json.extract! following, :follow_user_id
-#             end
-#         end
-#     end
-# end

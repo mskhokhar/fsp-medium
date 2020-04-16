@@ -1,4 +1,3 @@
-json.extract! current_user, :username, :id, :email, :first_name, :last_name
 json.authored_posts do 
     json.array! current_user.authored_posts.pluck(:id)
 end

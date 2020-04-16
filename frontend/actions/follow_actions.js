@@ -14,21 +14,27 @@ const receiveAllFollowers = payload => ({
     payload
 })
 
-const deleteFollower = payload => ({
+const deleteFollower = follower => ({
     type: DELETE_FOLLOWER,
-    payload
+    follower
 })
 
-const addFollower = payload => ({
+const addFollower = follower => ({
     type: ADD_FOLLOWER,
-    payload
+    follower
 })
 
 export const followUser = follower => dispatch => postFollower(follower)
-    .then(payload => dispatch(addFollower(payload)))
+    .then(follower => dispatch(addFollower(follower)))
 
 export const unfollow = followId => dispatch => removeFollower(followId)
-    .then(followers => dispatch(deleteFollower(followers)))
+    .then(follower => {
+        console.log(follower);
+        dispatch(deleteFollower(follower));
+    })
 
 export const fetchAllFollowers = () => dispatch => getFollowers()
-    .then(followers => dispatch(receiveAllFollowers(followers)))
+    .then(followers => {
+        console.log("followers",followers);
+        dispatch(receiveAllFollowers(followers))
+    })
