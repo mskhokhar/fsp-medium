@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.logout = logout;
     window.getState = store.store.getState;
     window.dispatch = store.store.dispatch;
-    console.log(store.store.dispatch)
     window.postUser = postUser;
     window.fetchPosts = fetchPosts;
     window.followUser = followUser;

@@ -11,10 +11,6 @@ class Api::FollowersController < ApplicationController
 
     def index
         @followers = Follower.all.where(["follow_user_id = :follow_user_id ", { follow_user_id: current_user.id }])
-        for follower in @followers do
-            puts follower.id
-        end
-        # @followings = current_user.followings;
     end
 
     def destroy
