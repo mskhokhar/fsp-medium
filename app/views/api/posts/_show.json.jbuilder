@@ -6,6 +6,9 @@ if post.picture.attached?
 else
     json.photoUrl nil
 end
+json.authored_comments do 
+    json.array! post.comments.pluck(:id)
+end
 
 
 

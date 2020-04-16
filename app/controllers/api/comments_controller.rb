@@ -9,8 +9,8 @@ class Api::CommentsController < ApplicationController
         end
     end
 
-    def show
-        @comments = Comment.all.where(["post_id = :post_id ", { post_id: params[:id]}])
+    def index
+        @comments = Comment.all
     end
 
     
