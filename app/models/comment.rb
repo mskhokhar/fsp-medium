@@ -5,5 +5,5 @@ class Comment < ApplicationRecord
     #for author of the comment
     belongs_to :author,
         foreign_key: :author_id,
-        class_name: :Uer
+        class_name: :User
 end
