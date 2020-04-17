@@ -21,7 +21,7 @@ class AddComment extends React.Component {
             author_id: this.props.currentUser.id,
             post_id: this.props.postId
         }
-        this.addComment(comment).then(
+        this.props.addComment(comment).then(
             this.setState({body: ''})
         )
     }
@@ -46,7 +46,7 @@ class AddComment extends React.Component {
                 <div className='comment-textarea'>
                     <TextareaAutosize
                         id="response-id"
-                        placeholder="Write a response ..."
+                        placeholder="Write a response . . ."
                         value={this.state.body}
                         onChange={this.update("body")}
                     ></TextareaAutosize>

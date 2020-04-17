@@ -61,15 +61,17 @@ class FeedItem extends React.Component{
             postComments = (
                 <div className="response-index-item-container">
                     {
-                        postCommentIds.map(id => (
+                        postCommentIds.reverse().map(id => {
+                            return (
                             <Comment
                                 key={id}
                                 body={comments[id].body}
                                 createdAt={comments[id].created_at}
                                 author={users[comments[id].author_id]}
                             />
-                        ))
-                    }
+                            )
+
+                    })}
                 </div>
             )
         }

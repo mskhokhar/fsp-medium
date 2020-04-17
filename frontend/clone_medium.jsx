@@ -6,7 +6,7 @@ import {login, logout} from './actions/session_actions';
 import {postUser} from './utils/session_api_util';
 import { fetchPosts } from './actions/posts_actions'
 import { followUser, unfollow, fetchAllFollowers } from './actions/follow_actions';
-import { addComment, fetchAllComments} from './actions/comment_actions';
+import { addComment, fetchAllComments, deleteComment} from './actions/comment_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root");
@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.unfollow = unfollow;
     window.fetchAllFollowers = fetchAllFollowers;
     window.addComment = addComment;
+    window.deleteComment = deleteComment;
     window.fetchAllComments = fetchAllComments;
 
     ReactDOM.render(< Root store={store.store} persistor={store.persistor}/>, root);
