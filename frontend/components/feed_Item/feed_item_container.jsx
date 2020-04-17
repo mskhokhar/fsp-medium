@@ -14,7 +14,7 @@ const mapStateToProps = (state, ownParams) => {
             post: state.entities.posts[ownParams.match.params.postId],
             users: state.entities.users,
             loading: state.ui.loading.indexLoading,
-            postCommentIds: state.entities.posts.post_comments,
+            postCommentIds: state.entities.posts[ownParams.match.params.postId].post_comments,
             comments: state.entities.comments
         }
     );

@@ -1,7 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-
+import Comment from '../comment/comment'
 import {categories} from '../../utils/category_state';
+import { postComment } from '../../utils/comment_api_util';
 
 class FeedItem extends React.Component{
     constructor(props){
@@ -55,13 +56,22 @@ class FeedItem extends React.Component{
     render(){
         const { likes, post, users, currentUserId, loading, postCommentIds, comments } = this.props;
         let postComments;
-        if (postComments.length !==0) {
+        console.log('ppppp',postCommentIds)
+        if (postCommentIds.length !==0) {
             postComments = (
                 <section className='response-index-feed'>
-
                     <h3 className="response-header">Responses</h3>
-                    <div className="response-index-item">
-
+                    <div className="response-index-item-container">
+                        {
+                            postCommentIds.map( id => (
+                                <Comment
+                                    key={id}
+                                    body={comments[id].body}
+                                    createdAt={comments[id].created_at}
+                                    author={users[comments[id].author_id]}
+                                />
+                            ))
+                        }
                     </div>
                 </section>
             )

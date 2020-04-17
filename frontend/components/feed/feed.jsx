@@ -14,6 +14,7 @@ class Feed extends React.Component {
     componentDidMount(){
         this.props.fetchPosts();
         this.props.fetchAllFollowers();
+        this.props.fetchAllComments();
     }
     
     render(){

@@ -1,0 +1,56 @@
+.response-item-container{
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.5);
+    margin-bottom: 24px;
+    padding: 24px 0;
+    background-color: #fff;
+}
+.response-item-content{
+    display: flex;
+    height: 44px;
+}
+#response-item-profile-pic{
+    margin: 0 10px 24px 24px;
+    border-radius: 50%;
+    border-top: 2px solid #03a87c;
+    border-bottom: 2px solid #03a87c;
+    font-size: 250%;
+    color: black;
+}
+.response-item-author-info{
+    display: flex;
+}
+.response-item-author{
+    line-height: 20px;
+    margin-bottom: 4px;
+}
+.response-author{
+    font-weight: 400;
+    color: rgba(0,0,0,0.84);
+    fill: rgba(0,0,0,0.84);
+    font-size: 20px;
+    text-decoration: none;
+}
+.response-item-date{
+    color: rgba(0,0,0,0.54);
+    fill: rgba(0,0,0,0.54);
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0;
+    font-size: 13px;
+    line-height: 20px;
+}
+.response-item-body{
+    font-size: 18px;
+    line-height: 1.58;
+    letter-spacing: -.004em;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-weight: 400;
+    font-style: normal;
+    display: block;
+    margin: 0 24px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    word-break: break-word;
+}
