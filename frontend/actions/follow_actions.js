@@ -29,7 +29,6 @@ export const followUser = follower => dispatch => postFollower(follower)
 
 export const unfollow = followId => dispatch => removeFollower(followId)
     .then(follower => {
-        console.log(follower);
         dispatch(deleteFollower(follower.user_id));
     })
 

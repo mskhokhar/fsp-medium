@@ -34,6 +34,24 @@
     text-align: center;
     padding: 8px 16px
 }
+.follow-button:hover{
+    cursor: pointer;
+    color: #25a35c;
+    border-color: #25a35c;
+}
+.follow-button{
+    font-size: 20px;
+    border: 1px solid #32c671;
+    border-radius: 5px;
+    color: #32c671;
+    font-weight: 200;
+    margin-top: 50px;
+    outline: none;
+    max-width: 100px;
+    text-align: center;
+    padding: 8px 16px;
+    margin-bottom: 30px;
+}
 .profile-info{
     width: 80%;
 }

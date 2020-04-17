@@ -18,12 +18,10 @@ const receiveComment = payload => ({
 
 export const addComment = comment => dispatch => postComment(comment)
     .then(comment => {
-        console.log(comment)
         dispatch(receiveComment(comment));
     })
 
 export const fetchAllComments = () => dispatch => getComments()
     .then(comments => {
-        console.log(comments)
         dispatch(receiveAllComments(comments))
     })

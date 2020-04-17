@@ -2,7 +2,6 @@ class Api::CommentsController < ApplicationController
    
     def create
         @comment = Comment.new(comment_params)
-        puts 'hitting'
         if @comment.save
             render :show
         else

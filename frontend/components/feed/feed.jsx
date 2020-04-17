@@ -13,6 +13,7 @@ class Feed extends React.Component {
     }
     componentDidMount(){
         this.props.fetchPosts();
+        this.props.fetchAllFollowers();
     }
     
     render(){
