@@ -53,7 +53,19 @@ class FeedItem extends React.Component{
         this.props.fetchCUserLikes();
     }
     render(){
-        const { likes, post, users, currentUserId, loading } = this.props;
+        const { likes, post, users, currentUserId, loading, postCommentIds, comments } = this.props;
+        let postComments;
+        if (postComments.length !==0) {
+            postComments = (
+                <section className='response-index-feed'>
+
+                    <h3 className="response-header">Responses</h3>
+                    <div className="response-index-item">
+
+                    </div>
+                </section>
+            )
+        }
         if (loading) {
             return <div className="loader-container"><div className="loader">Loading...</div></div>
         }
@@ -115,6 +127,9 @@ class FeedItem extends React.Component{
                 <div className="action-button-container">
                     {updatePost}
                     {removePost}
+                </div>
+                <div className='response-index-container'>
+                    {postComments}
                 </div>
             </div>
         );
