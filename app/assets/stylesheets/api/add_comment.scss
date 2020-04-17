@@ -1,0 +1,41 @@
+.response-item-form{
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.5);
+    margin-bottom: 24px;
+    padding: 23px 0;
+    background-color: #fff;
+}
+#submit-response-button{
+    font-size: 15px;
+    cursor: pointer;
+    border: 1px solid #32c671;
+    border-radius: 5px;
+    text-align: center;
+    color: #32c671;
+    font-weight: 200;
+    margin-top: 20px;
+    margin-left: 20px;
+    outline: none;
+}
+#submit-response-button:hover{
+    color: darken(#32c671, 10%)
+}
+#submit-response-button:disabled{
+    color: grey;
+    border: 1px solid grey;
+    cursor: not-allowed;
+}
+.comment-textarea{
+    width: 90%;
+    margin-left: 20px;
+}
+#response-id{
+    width: 100%;
+    resize: none;
+    border: none;
+    font-size: 18px;
+    margin-top: 30px;
+    outline: none;
+    color: rgba(0,0,0,0.84);
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import Comment from '../comment/comment'
+import AddComment from '../comment/addComment';
 import {categories} from '../../utils/category_state';
 import { postComment } from '../../utils/comment_api_util';
 
@@ -54,26 +55,22 @@ class FeedItem extends React.Component{
         this.props.fetchCUserLikes();
     }
     render(){
-        const { likes, post, users, currentUserId, loading, postCommentIds, comments } = this.props;
+        const { likes, post, users, currentUserId, loading, postCommentIds, comments, addComment } = this.props;
         let postComments;
-        console.log('ppppp',postCommentIds)
         if (postCommentIds.length !==0) {
             postComments = (
-                <section className='response-index-feed'>
-                    <h3 className="response-header">Responses</h3>
-                    <div className="response-index-item-container">
-                        {
-                            postCommentIds.map( id => (
-                                <Comment
-                                    key={id}
-                                    body={comments[id].body}
-                                    createdAt={comments[id].created_at}
-                                    author={users[comments[id].author_id]}
-                                />
-                            ))
-                        }
-                    </div>
-                </section>
+                <div className="response-index-item-container">
+                    {
+                        postCommentIds.map(id => (
+                            <Comment
+                                key={id}
+                                body={comments[id].body}
+                                createdAt={comments[id].created_at}
+                                author={users[comments[id].author_id]}
+                            />
+                        ))
+                    }
+                </div>
             )
         }
         if (loading) {
@@ -139,7 +136,15 @@ class FeedItem extends React.Component{
                     {removePost}
                 </div>
                 <div className='response-index-container'>
-                    {postComments}
+                    <section className='response-index-feed'>
+                        <h3 className="response-header">Responses</h3>
+                        <AddComment 
+                            addComment={addComment}
+                            currentUser={users[currentUserId]}
+                            postId={post.id}
+                        />
+                        {postComments}
+                    </section>
                 </div>
             </div>
         );
