@@ -11,6 +11,8 @@ export default (state = {}, action) => {
             return Object.assign(nextState,{[action.post.id]: action.post});
         case DELETE_COMMENT:
             return Object.assign(nextState, { [action.payload.post.id]: action.payload.post });
+        case RECEIVE_COMMENT:
+            return Object.assign(nextState, { [action.payload.post.id]: action.payload.post });
         case DESTROY_POST:
             delete nextState[action.postId];
             return nextState;

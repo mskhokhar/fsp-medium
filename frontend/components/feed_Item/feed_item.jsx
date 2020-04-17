@@ -55,7 +55,7 @@ class FeedItem extends React.Component{
         this.props.fetchCUserLikes();
     }
     render(){
-        const { likes, post, users, currentUserId, loading, postCommentIds, comments, addComment } = this.props;
+        const { likes, post, users, currentUserId, loading, postCommentIds, comments, addComment, deleteComment } = this.props;
         let postComments;
         if (postCommentIds.length !==0) {
             postComments = (
@@ -68,6 +68,9 @@ class FeedItem extends React.Component{
                                 body={comments[id].body}
                                 createdAt={comments[id].created_at}
                                 author={users[comments[id].author_id]}
+                                deleteComment={deleteComment}
+                                currentUserId={currentUserId}
+                                commentId={id}
                             />
                             )
 

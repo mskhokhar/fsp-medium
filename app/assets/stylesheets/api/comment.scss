@@ -55,3 +55,23 @@
     margin-block-end: 1em;
     word-break: break-word;
 }
+
+.response-item-buttons{
+    display: flex;
+    width: 625px;
+    margin-left: 20px;
+    // justify-content: space-between;
+}
+.response-item-delete{
+    align-self: center;
+    border: 1px solid #cc5454;
+    border-radius: 4px;
+    color: #cc5454;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 2px 10px;
+}
+.response-item-delete:hover{
+    color: darken(#cc5454, 10%);
+    border: 1px solid darken(#cc5454, 10%);
+}

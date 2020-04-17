@@ -7,6 +7,8 @@ import {
 export const RECEIVE_ALL_COMMENTS = 'RECEIVE_ALL_COMMENTS';
 export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 export const DELETE_COMMENT = "DELETE_COMMENT";
+export const START_RECEIVING_POST = 'START_RECEIVING_POST';
+
 
 const receiveAllComments = payload => ({
     type: RECEIVE_ALL_COMMENTS,
@@ -22,16 +24,28 @@ const removeTheComment = payload => ({
     payload
 })
 
-export const addComment = comment => dispatch => postComment(comment)
-    .then(comment => {
-        dispatch(receiveComment(comment));
-    })
+export const startReceivingPost = () => {
+    return {
+        type: START_RECEIVING_POST
+    };
+};
+
+export const addComment = comment => dispatch => {
+    dispatch(startReceivingPost());
+    return postComment(comment)
+        .then(comment => {
+            dispatch(receiveComment(comment));
+        })
+}
 
 export const fetchAllComments = () => dispatch => getComments()
     .then(comments => {
         dispatch(receiveAllComments(comments))
     })
-export const deleteComment = commentId => dispatch => removeComment(commentId)
-    .then(payload => {
-        dispatch(removeTheComment(payload))
-    })
+export const deleteComment = commentId => dispatch => {
+    dispatch(startReceivingPost());
+    return removeComment(commentId)
+        .then(payload => {
+            dispatch(removeTheComment(payload))
+        })
+}
