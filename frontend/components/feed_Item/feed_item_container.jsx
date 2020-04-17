@@ -3,7 +3,7 @@ import FeedItem from './feed_item';
 import { fetchCUserLikes} from '../../actions/like_actions';
 import { fetchPosts, fetchPost, deletePost } from '../../actions/posts_actions'
 import { likePost, unlikePost } from '../../actions/like_actions';
-import { extractPosts } from '../../reducers/selector';
+import { addComment, deleteComment } from '../../actions/comment_actions';
 
 
 const mapStateToProps = (state, ownParams) => {
@@ -13,7 +13,9 @@ const mapStateToProps = (state, ownParams) => {
             currentUserId: state.session.currentUserId,
             post: state.entities.posts[ownParams.match.params.postId],
             users: state.entities.users,
-            loading: state.ui.loading.indexLoading
+            loading: state.ui.loading.indexLoading,
+            postCommentIds: state.entities.posts[ownParams.match.params.postId].post_comments,
+            comments: state.entities.comments
         }
     );
 };
@@ -23,7 +25,10 @@ const mapDispatchToProps = dispatch => ({
     fetchCUserLikes: () => dispatch(fetchCUserLikes()),
     fetchPosts: () => dispatch(fetchPosts()),
     fetchPost: (postId) => dispatch(fetchPost(postId)),
-    deletePost: postId => dispatch(deletePost(postId))
+    deletePost: postId => dispatch(deletePost(postId)),
+    addComment: comment => dispatch(addComment(comment)),
+    deleteComment: commentId => dispatch(deleteComment(commentId))
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FeedItem);

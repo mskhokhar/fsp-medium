@@ -1,7 +1,7 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 class LoginForm extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             username: '',
@@ -15,64 +15,62 @@ class LoginForm extends React.Component {
         this.autoFillLogin = this.autoFillLogin.bind(this);
     }
     autoFillLogin() {
-            let username = this.props.demoUser.username.split("");
-            let password = this.props.demoUser.password.split("");
-            const emailInterval = setInterval(() => {
-                const first = username.splice(0, 1);
-                this.setState(
-                    { username: this.state.username + first[0] },
-                    () => {
-                        if (!username.length) {
-                            clearInterval(emailInterval);
-                            const passwordInterval = setInterval(() => {
-                                const first = password.splice(0, 1);
-                                this.setState(
-                                    { password: this.state.password + first[0] },
-                                    () => {
-                                        if (!password.length) {
-                                            clearInterval(passwordInterval)
-                                            this.props.processForm(this.state).then(this.successfulLogin());
-                                        }
-
+        let username = this.props.demoUser.username.split("");
+        let password = this.props.demoUser.password.split("");
+        const emailInterval = setInterval(() => {
+            const first = username.splice(0, 1);
+            this.setState(
+                { username: this.state.username + first[0] },
+                () => {
+                    if (!username.length) {
+                        clearInterval(emailInterval);
+                        const passwordInterval = setInterval(() => {
+                            const first = password.splice(0, 1);
+                            this.setState(
+                                { password: this.state.password + first[0] },
+                                () => {
+                                    if (!password.length) {
+                                        clearInterval(passwordInterval)
+                                        this.props.processForm(this.state).then(this.successfulLogin());
                                     }
-                                )
-                            }, 50)
-                        }
+
+                                }
+                            )
+                        }, 50)
                     }
-                );
-            }, 50);
-        
+                }
+            );
+        }, 50);
+
     }
-    update(field){
-        return e => this.setState({[field]: e.target.value})
+    update(field) {
+        return e => this.setState({ [field]: e.target.value })
     }
-    handleSubmit(e){
+    handleSubmit(e) {
         e.preventDefault();
-        if (this.props.errors.length !== 0) {
-            
-        } else {
+        if (this.props.errors.length === 0) {
             this.props.processForm(this.state).then(this.successfulLogin(), this.unsuccessfulLogin());
         }
-      
+
     }
-    successfulLogin(){
+    successfulLogin() {
         this.props.closeModal();
-        setTimeout(this.redirect,1000);
+        setTimeout(this.redirect, 1000);
     }
-    unsuccessfulLogin(){
+    unsuccessfulLogin() {
         document.getElementById('login-username').className = 'login-auth-error';
         document.getElementById('login-password').className = 'login-auth-error';
         this.props.openModal('login')
     }
-    redirect(){
+    redirect() {
         this.props.history.push('/feed');
     }
-    handleSignup(){
+    handleSignup() {
         this.props.openModal('signup');
     }
-    
-    render(){
-        const {errors} = this.props;
+
+    render() {
+        const { errors } = this.props;
         return (
             <div className='auth-form'>
                 <div className='auth-img-container' ><img src={window.auth_back_2} alt="" /></div>
@@ -97,7 +95,7 @@ class LoginForm extends React.Component {
                                 value={this.state.password}
                                 onChange={this.update('password')}
                             />
-                            <input className='submit-button'  type="submit"  value='LogIn' />
+                            <input className='submit-button' type="submit" value='LogIn' />
                             <input className='submit-button' onClick={this.autoFillLogin} type="button" value='Guest Login' />
                             <span onClick={this.handleSignup} className="login-form-signup">No Account? <span>Create one</span></span>
                         </div>
@@ -106,7 +104,7 @@ class LoginForm extends React.Component {
                         <li>{errors[0]}</li>
                     </ul>
                 </div>
-                <div><img className='auth-img-container' src={window.auth_back_1} alt=""/></div>
+                <div><img className='auth-img-container' src={window.auth_back_1} alt="" /></div>
             </div>
         );
     }

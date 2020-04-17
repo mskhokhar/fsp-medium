@@ -5,11 +5,11 @@ import Root from './components/root';
 import {login, logout} from './actions/session_actions';
 import {postUser} from './utils/session_api_util';
 import { fetchPosts } from './actions/posts_actions'
-import { likePost, unlikePost } from './actions/like_actions';
+import { followUser, unfollow, fetchAllFollowers } from './actions/follow_actions';
+import { addComment, fetchAllComments, deleteComment} from './actions/comment_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root");
-
     // const store = configureStore();
     let store;
     if (window.currentUser) {
@@ -25,15 +25,18 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         store = configureStore();
     }
-
     window.login = login;
     window.logout = logout;
-    window.getState = store.getState;
-    window.dispatch = store.dispatch;
+    window.getState = store.store.getState;
+    window.dispatch = store.store.dispatch;
     window.postUser = postUser;
     window.fetchPosts = fetchPosts;
-    window.likePost = likePost;
-    window.unlikePost = unlikePost;
+    window.followUser = followUser;
+    window.unfollow = unfollow;
+    window.fetchAllFollowers = fetchAllFollowers;
+    window.addComment = addComment;
+    window.deleteComment = deleteComment;
+    window.fetchAllComments = fetchAllComments;
 
     ReactDOM.render(< Root store={store.store} persistor={store.persistor}/>, root);
 });

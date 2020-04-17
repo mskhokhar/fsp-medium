@@ -4,6 +4,10 @@ import {
     RECEIVE_POST,
     START_RECEIVING_POST
 } from '../actions/posts_actions';
+import {
+    DELETE_COMMENT,
+    RECEIVE_COMMENT
+} from '../actions/comment_actions';
 
 const initialState = {
     indexLoading: false,
@@ -18,6 +22,10 @@ export default function loadingReducer(state = initialState, action){
         case START_RECEIVING_ALL_POSTS:
             return Object.assign({}, state, { indexLoading: true });
         case RECEIVE_POST:
+            return Object.assign({}, state, { indexLoading: false });
+        case DELETE_COMMENT:
+            return Object.assign({}, state, { indexLoading: false });
+        case RECEIVE_COMMENT:
             return Object.assign({}, state, { indexLoading: false });
         case START_RECEIVING_POST:
             return Object.assign({}, state, { indexLoading: true });

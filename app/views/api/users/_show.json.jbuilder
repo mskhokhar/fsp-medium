@@ -7,4 +7,5 @@ end
 json.liked_posts do 
     json.array! user.liked_posts.pluck(:id)
 end
+
    

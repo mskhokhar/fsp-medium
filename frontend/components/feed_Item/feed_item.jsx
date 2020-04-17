@@ -1,7 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-
+import Comment from '../comment/comment'
+import AddComment from '../comment/addComment';
 import {categories} from '../../utils/category_state';
+import { postComment } from '../../utils/comment_api_util';
 
 class FeedItem extends React.Component{
     constructor(props){
@@ -53,7 +55,29 @@ class FeedItem extends React.Component{
         this.props.fetchCUserLikes();
     }
     render(){
-        const { likes, post, users, currentUserId, loading } = this.props;
+        const { likes, post, users, currentUserId, loading, postCommentIds, comments, addComment, deleteComment } = this.props;
+        let postComments;
+        if (postCommentIds.length !==0) {
+            postComments = (
+                <div className="response-index-item-container">
+                    {
+                        postCommentIds.reverse().map(id => {
+                            return (
+                            <Comment
+                                key={id}
+                                body={comments[id].body}
+                                createdAt={comments[id].created_at}
+                                author={users[comments[id].author_id]}
+                                deleteComment={deleteComment}
+                                currentUserId={currentUserId}
+                                commentId={id}
+                            />
+                            )
+
+                    })}
+                </div>
+            )
+        }
         if (loading) {
             return <div className="loader-container"><div className="loader">Loading...</div></div>
         }
@@ -115,6 +139,17 @@ class FeedItem extends React.Component{
                 <div className="action-button-container">
                     {updatePost}
                     {removePost}
+                </div>
+                <div className='response-index-container'>
+                    <section className='response-index-feed'>
+                        <h3 className="response-header">Responses</h3>
+                        <AddComment 
+                            addComment={addComment}
+                            currentUser={users[currentUserId]}
+                            postId={post.id}
+                        />
+                        {postComments}
+                    </section>
                 </div>
             </div>
         );

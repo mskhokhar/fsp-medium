@@ -7,6 +7,8 @@ class Profile extends React.Component{
 
         this.handlePublish = this.handlePublish.bind(this);
         this.handleBackToFeed = this.handleBackToFeed.bind(this);
+        this.handleFollow = this.handleFollow.bind(this);
+        this.handleUnfollow = this.handleUnfollow.bind(this);
 
     }
     componentDidMount(){
@@ -18,8 +20,15 @@ class Profile extends React.Component{
     handleBackToFeed(){
         this.props.history.push('./feed');
     }
+    handleFollow(follower){
+        this.props.followUser(follower);
+    }
+    handleUnfollow(followerId){
+        this.props.unfollow(followerId);
+    }
     render(){
-        const {profileOwner, posts, currentUserId, fetchPost, users, loading} = this.props;
+        let follow;
+        const {profileOwner, posts, currentUserId, fetchPost, users, loading, followers} = this.props;
         let ownPosts;
         let name;
         if (loading) {
@@ -32,6 +41,23 @@ class Profile extends React.Component{
             name="Your own";
         }else{
             name=profileOwner.username;
+            if (followers[profileOwner.id]) {
+                follow=(
+                    <div onClick={() => this.handleUnfollow(followers[profileOwner.id].id)} className='follow-button'>
+                        <div>Following</div>
+                    </div>
+                )
+            }else{
+                let follower = {
+                    user_id: profileOwner.id,
+                    follow_user_id: currentUserId
+                }
+                follow = (
+                    <div onClick={ () => this.handleFollow(follower) } className='follow-button'>
+                        <div>Follow</div>
+                    </div>
+                )
+            }
         }
 
         if (posts.length ) {
@@ -94,6 +120,7 @@ class Profile extends React.Component{
                         </i>
                         </div>
                     </header>
+                    {follow}
                     <h4 className="profile-posts">{name} articles:</h4>
                     <div>
                         <div className="">
