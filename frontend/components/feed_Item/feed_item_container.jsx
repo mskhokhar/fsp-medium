@@ -3,7 +3,7 @@ import FeedItem from './feed_item';
 import { fetchCUserLikes} from '../../actions/like_actions';
 import { fetchPosts, fetchPost, deletePost } from '../../actions/posts_actions'
 import { likePost, unlikePost } from '../../actions/like_actions';
-import { addComment, deleteComment } from '../../actions/comment_actions';
+import { fetchAllComments, addComment, deleteComment } from '../../actions/comment_actions';
 
 
 const mapStateToProps = (state, ownParams) => {
@@ -27,6 +27,7 @@ const mapDispatchToProps = dispatch => ({
     fetchPost: (postId) => dispatch(fetchPost(postId)),
     deletePost: postId => dispatch(deletePost(postId)),
     addComment: comment => dispatch(addComment(comment)),
+    fetchAllComments: () => dispatch(fetchAllComments()),
     deleteComment: commentId => dispatch(deleteComment(commentId))
 
 });

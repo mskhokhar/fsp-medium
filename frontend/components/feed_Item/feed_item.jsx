@@ -51,8 +51,12 @@ class FeedItem extends React.Component{
         this.props.history.push(`/users/${userId}`)
     }
     componentDidMount(){
-        this.props.fetchPosts();
-        this.props.fetchCUserLikes();
+        this.props.fetchPosts().then(
+            this.props.fetchAllComments()
+        ).then(
+            this.props.fetchCUserLikes()
+        );
+        
     }
     render(){
         const { likes, post, users, currentUserId, loading, postCommentIds, comments, addComment, deleteComment } = this.props;
